@@ -1,0 +1,105 @@
+.container{
+  width: 100%;
+  height: auto;
+  /* background: chartreuse; */
+  margin-top: 0%;
+  padding-bottom: 6%;
+}
+
+.backbox {
+  position: relative;
+  width: 100%;
+  height: auto;
+  left: 0px;
+  top: 0%;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+}
+
+h1{
+  float: left;
+  color: black;
+  /* text-shadow: 1px 1px 5px black; */
+}
+
+.searchbox {
+  float: right;
+  width: 40%;
+  height: 2em;
+  font-family: Catamaran;
+  font-size: 100%;
+  border-radius: 50px;
+  /* background: red; */
+  padding: 0%;
+  font-size: 35px;
+  margin-bottom: 3%;
+}
+
+.mat-icon{
+  margin-right: 2%;
+}
+
+
+table {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+  cursor: pointer;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+  text-align: start;
+  font-size: 18px;
+}
+
+th {
+  font-size: 18px;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.mat-form-field {
+  /* background: red; */
+  margin-right: 3em;
+}

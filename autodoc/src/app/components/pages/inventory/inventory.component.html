@@ -1,0 +1,91 @@
+<div class = "container">
+  <div class = "topic">
+    <h1 style>Current Inventory</h1>
+
+    <div class="example-button-container">
+      <button mat-fab class="addButton" (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+
+    <div class ="searchbar">
+
+      <mat-form-field class="searchbox" appearance="legacy">
+        <mat-label><mat-icon>search</mat-icon>Search for an Inventoty Item...</mat-label>
+        <input matInput type="text" [(ngModel)]="value">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+    </div>
+   
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Item_ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Category Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        </ng-container>
+      
+        <!-- Availability Column -->
+        <ng-container matColumnDef="availability">
+          <th mat-header-cell *matHeaderCellDef> Availability </th>
+          <td mat-cell *matCellDef="let element"> {{element.availability}} </td>
+        </ng-container>
+      
+        <!-- Cost Column -->
+        <ng-container matColumnDef="cost">
+          <th mat-header-cell *matHeaderCellDef> Unit Cost </th>
+          <td mat-cell *matCellDef="let element"> {{element.cost}} </td>
+        </ng-container>
+      
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Unit Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell  *matHeaderCellDef> Edit </th>
+          <td mat-cell *matCellDef="let row">
+               <button mat-button ><mat-icon>edit</mat-icon></button>
+          </td>
+        </ng-container>
+      
+        <!-- Actions Column -->
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell  *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let row">
+               <button mat-button ><mat-icon>delete</mat-icon></button>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>     
+
+</div>

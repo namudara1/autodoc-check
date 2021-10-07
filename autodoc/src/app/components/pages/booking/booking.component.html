@@ -1,0 +1,353 @@
+
+<div class = "container" >
+  <mat-stepper [linear]="" #stepper>
+    <ng-template matStepperIcon="done"></ng-template>
+    <mat-step [stepControl]="firstFormGroup" label="" id="matid" editable>
+        <form [formGroup]="firstFormGroup">
+        
+        <ng-template matStepLabel><p class="stepLabel">Choose Your Vehicle</p></ng-template>
+        <mat-divider></mat-divider>
+        
+        <div class="topic">
+                Choose your vehicle
+        </div>
+        <div class="content">
+        
+          <a *ngFor="let vehicleRow of vehicleRows " mat-button  id = 'vehiclebutton' (click)='SelectVehicle(vehicleRow)'><p>{{vehicleRow.vehicle_number}}</p><img src = 'assets/img/pic/{{vehicleRow.vehicle_img_name}}'></a>
+          <button mat-button class="addcar" (click)="openDialog()"><img src = "assets/img/ico/plus.png" style="filter:brightness(100%);"></button>
+          <button mat-raised-button (click)="openDialog()" class="mobileAddCar"><img src="assets/img/ico/mobileaddcar.png" style="width: 60px; filter: invert(1);"></button> 
+          
+        </div>  
+      <div class = "buttons">
+        <button mat-button matStepperNext class="nextButton" [disabled]="selectvehicle==='' "  >Next<mat-icon class='nextbackico'>arrow_forward_ios</mat-icon></button> 
+      </div>        
+        </form>
+     
+    </mat-step>
+
+
+    <mat-step [stepControl]="secondFormGroup" label="">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel><p class="stepLabel">Choose Service Station</p></ng-template>
+        <mat-divider></mat-divider>
+
+        
+        <div class="topic">
+          Choose your Service Station
+       </div>
+
+  <div class="content" style="width: 100%; padding: 0%;">
+    
+
+    <input type="text" id="serviceStationSearch" class="form-control"  placeholder="Search for Service Station.." title="Type in a name" [(ngModel)]="searchedKeyword" [ngModelOptions]="{standalone: true}"> 
+    <div class = "desktop">
+      <table id="serviceStationsTable" style="border-radius: 10px 10px 0px 0px;">
+        <tr class="header">
+          <th>Service Station Name</th>
+          <th colspan="3" style="text-align: center;">Rating</th>
+          <th> </th>
+          <th class="ratecount"></th>
+          <th class = "serviceLocation">Location</th>
+          
+        </tr>
+        </table>
+        
+        <div class="serviceStationsScroll">
+          <table id="serviceStationsTable"style="border-radius: 0px 0px 10px 10px;">
+          <tr  (click)='selectServiceStation(servicestationTownRow)' *ngFor="let servicestationTownRow of servicestationTownRows| filter:searchedKeyword " [ngClass]="{'classToApply': activeState_id == servicestationTownRow.st_id }">
+            <td  >{{servicestationTownRow.st_name}}</td>
+            <td style="width: 6%; padding-right: 0px;"> <p style="width: 100%; margin: 2px auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;"><mat-icon style="float: left; color:#ffdf00;">star</mat-icon>{{servicestationTownRow.current_rate}}</p></td>
+            <td style="text-align: center; width: 20%;" id='ratingscolumn'>
+              <mat-progress-bar 
+                  class="example-margin"
+                  [color]="color"
+                  [mode]="mode"
+                  [value]="rate_bar(servicestationTownRow.current_rate)"
+                  [bufferValue]="bufferValue">
+              </mat-progress-bar>
+            
+            </td>
+            <td class="ratecount"><mat-icon style="display: inline-block; margin-right: 10px; margin-top: 5px;">group</mat-icon><p style="position: absolute; display: inline-block; margin-bottom: 0px; margin-top: 7px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;">{{servicestationTownRow.rate_count}} </p></td>
+            <td class = "serviceLocation">{{servicestationTownRow.town}}</td>
+          </tr>
+          <tr (click)='selectServiceStation(servicestationAllRow)' *ngFor="let servicestationAllRow of servicestationAllRows | filter:searchedKeyword "  [ngClass]="{'classToApply': activeState_id == servicestationAllRow.st_id }">
+            <td>{{servicestationAllRow.st_name}}</td>
+            <td style="padding-right: 0px;"><p style="width: 100%; margin: 2px auto;  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;">{{servicestationAllRow.current_rate}}<mat-icon style="float: left; color: #ffdf00;">star</mat-icon></p></td>
+            <td style="text-align: center;" id='ratingscolumn'> 
+              <mat-progress-bar
+                class="example-margin"
+                [color]="color"
+                [mode]="mode"
+                [value]="rate_bar(servicestationAllRow.current_rate)"
+                [bufferValue]="bufferValue">
+              </mat-progress-bar>
+              
+            </td>
+            <td class="ratecount"><mat-icon style=" font-size: 25px; display: inline-block; margin-right: 10px; margin-top: 5px;">group</mat-icon><p style="position: absolute; display: inline-block; margin-top: 7px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;">{{servicestationAllRow.rate_count}} </p></td>
+            <td class = "serviceLocation">{{servicestationAllRow.town}}</td>
+          </tr> 
+          </table>
+        </div>
+        
+    </div>
+    <div class = "mobile">
+      <table id="serviceStationsTable" style="border-radius: 10px 10px 0px 0px;">
+        <tr class="header">
+          <th style="width:40%;">Service Station Name</th>
+          <th style="text-align: center; width: 30%;"> Rating </th>
+          <th class = "serviceLocation" style="width: 30%;">Location</th>
+        </tr>
+      </table>
+      <div style="height: 44vh; overflow: auto;">
+        <table id="serviceStationsTable" style="border-radius: 0px 0px 10px 10px;">
+        <tr  (click)='selectServiceStation(servicestationTownRow)' *ngFor="let servicestationTownRow of servicestationTownRows| filter:searchedKeyword " [ngClass]="{'classToApply': activeState_id == servicestationTownRow.st_id }">
+          <td style="width:40%;"v>{{servicestationTownRow.st_name}}</td>
+          <td style="text-align: center; width: 30%;"><p style="width: fit-content; margin: 2px auto;  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;">{{servicestationTownRow.current_rate}}<mat-icon style="float: left; color: #ffdf00;">star</mat-icon></p></td>
+          <!-- <td> <p style="margin: 2px auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;"><mat-icon style="float: left; color:#ffdf00;">star</mat-icon>{{servicestationTownRow.current_rate}}</p></td> -->
+          <td class = "serviceLocation" style="width: 30%;">{{servicestationTownRow.town}}</td>
+        </tr>
+        <tr (click)='selectServiceStation(servicestationAllRow)' *ngFor="let servicestationAllRow of servicestationAllRows | filter:searchedKeyword "  [ngClass]="{'classToApply': activeState_id == servicestationAllRow.st_id }">
+          <td style="width:40%;">{{servicestationAllRow.st_name}}</td>
+          <td style="width: 30%;"><p style="width: fit-content; margin: 2px auto;  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;">{{servicestationAllRow.current_rate}}<mat-icon style="float: left; color: #ffdf00;">star</mat-icon></p></td>
+          <td class = "serviceLocation" style="width: 30%;">{{servicestationAllRow.town}}</td>
+        </tr> 
+      </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class = "buttons">
+    <button mat-button matStepperPrevious class="backButton" (click) = 'emptyServiceStations()'><mat-icon class='nextbackico'>arrow_back_ios</mat-icon>Back</button>
+    <button mat-button matStepperNext class="nextButton"  (click)='getAppointmentRows()' (click)='getBaysDetails()'  [disabled]="Selected_serviceStation_Object==='' " >Next<mat-icon class='nextbackico'>arrow_forward_ios</mat-icon></button> 
+  </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup" label="">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel><p class="stepLabel">Choose Service Type</p></ng-template>  
+          <mat-divider></mat-divider>
+          
+            <div class="topic">
+              Choose your Service Type
+            </div>
+            <div class="content">
+              <div class = "serviceType">      
+                <input type="button"  class="button2"  [disabled]="fullServiceLocked===1"  value="Full Service"   [ngClass]="{'ifFullserviceLocked': fullServiceLocked ===1 }"  (click)='selectServiceType("full service")'   >
+                <input type="button"  class="button1"  value="Custom Service"  (click)='selectServiceType("custom service")'  > 
+              </div>
+            </div>
+          
+          
+            <div class = "buttons">
+              <button mat-button matStepperPrevious class="backButton"><mat-icon class='nextbackico'>arrow_back_ios</mat-icon>Back</button>
+              <button mat-button matStepperNext class="nextButton"  (click)='checkAvaialability()' [disabled]="SelectedServiceType===''  ">Next<mat-icon class='nextbackico'>arrow_forward_ios</mat-icon></button>
+            </div>
+          
+        </form>
+    </mat-step>
+
+      <mat-step [stepControl]="fourthFormGroup" label="">
+
+
+        <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel><p class="stepLabel">Choose Services</p></ng-template>
+            <mat-divider></mat-divider>
+  
+              <div *ngIf="SelectedServiceType==='full service';then content else other_content">here is ignored</div>    
+
+              <ng-template #content>
+                <div class="topic">
+                    Choose Additional Services
+                </div>
+              </ng-template>    
+              
+              
+              <ng-template #other_content>
+                <div class="topic">
+                    Choose  Services
+                </div>
+              </ng-template>
+
+                  <div class="priceNtime">
+                      <!-- <p>PRICE (Rs):{{TotalServiceAmount}}</p> -->
+                      <span style="color: aliceblue; width: fit-content; margin: 5px auto;"><mat-icon style="color: aliceblue;">timelapse</mat-icon><br><p style="font-size: 20px; margin: 0px auto;">{{TotalServiceDuration}}h</p></span>
+
+                  </div>
+                
+                  <div class="content">
+                    <mat-grid-list cols="6" rowHeight="41:20" [gutterSize]="'10px'" class="desktop">
+                      <mat-grid-tile colspan="1" rowspan="2"><button mat-button class="servicesButtons" [disabled]=" hasService[4]===0"                                          (click)='SelectPreferedServices(15)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(15) !== -1 }">Wheel Alignment</button></mat-grid-tile>
+                      <mat-grid-tile ><button mat-button class="servicesButtons"                        [disabled]=" hasService[3]===0 "  (click)='SelectPreferedServices(14)'  [ngClass]="renderClass(14)">Waxing</button></mat-grid-tile>
+                      <mat-grid-tile colspan="2" rowspan="1"><button mat-button class="servicesButtons" [disabled]=" hasService[5]===0"                                          (click)='SelectPreferedServices(16)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(16) !== -1 }">Cut & Polish</button></mat-grid-tile>
+                      <mat-grid-tile colspan="1" rowspan="2"><button mat-button class="servicesButtons" [disabled]=" hasService[2]===0"                                          (click)='SelectPreferedServices(13)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(13) !== -1 }">Battery Replacement</button></mat-grid-tile>
+                      <mat-grid-tile><button mat-button class="servicesButtons"                         [disabled]=" hasService[1]===0"                                          (click)='SelectPreferedServices(12)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(12) !== -1 }">Engine Tune-Up</button></mat-grid-tile>
+                      <mat-grid-tile colspan="2" rowspan="1"><button mat-button class="servicesButtons" [disabled]=" hasService[7]===0"                                          (click)='SelectPreferedServices(18)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(18) !== -1 }">Tyre Replacement</button></mat-grid-tile>
+                      <mat-grid-tile ><button mat-button class="servicesButtons"                        [disabled]=" hasService[0]===0 "  (click)='SelectPreferedServices(11)'  [ngClass]="renderClass(11)">Oil Changing & Filter Replacement</button></mat-grid-tile>
+                      <mat-grid-tile colspan="1" rowspan="1"><button mat-button class="servicesButtons" [disabled]=" hasService[6]===0 "  (click)='SelectPreferedServices(17)'  [ngClass]="renderClass(17)">Interior Cleaning & Body Wash</button></mat-grid-tile> 
+                    </mat-grid-list>
+
+                    <mat-grid-list cols="3" rowHeight="41:35" [gutterSize]="'10px'" class="mobile">
+                      <mat-grid-tile colspan="1" rowspan="2"><button mat-button class="servicesButtons" [disabled]=" hasService[4]===0"                                          (click)='SelectPreferedServices(15)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(15) !== -1 }">Wheel Alignment</button></mat-grid-tile>
+                      <mat-grid-tile colspan="2" rowspan="1"><button mat-button class="servicesButtons"                        [disabled]=" hasService[3]===0 "  (click)='SelectPreferedServices(14)'  [ngClass]="renderClass(14)">Waxing</button></mat-grid-tile>
+                      <mat-grid-tile colspan="1" rowspan="1"><button mat-button class="servicesButtons" [disabled]=" hasService[5]===0"                                          (click)='SelectPreferedServices(16)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(16) !== -1 }">Cut & Polish</button></mat-grid-tile>
+                      <mat-grid-tile colspan="1" rowspan="2"><button mat-button class="servicesButtons" [disabled]=" hasService[2]===0"                                          (click)='SelectPreferedServices(13)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(13) !== -1 }">Battery Replacement</button></mat-grid-tile>
+                      <mat-grid-tile><button mat-button class="servicesButtons"                         [disabled]=" hasService[1]===0"                                          (click)='SelectPreferedServices(12)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(12) !== -1 }">Engine Tune-Up</button></mat-grid-tile>
+                      <mat-grid-tile colspan="1" rowspan="2"><button mat-button class="servicesButtons" [disabled]=" hasService[7]===0"                                          (click)='SelectPreferedServices(18)'  [ngClass]="{'serviceSelected': selected_services_id.indexOf(18) !== -1 }">Tyre Replacement</button></mat-grid-tile>
+                      <mat-grid-tile ><button mat-button class="servicesButtons"                        [disabled]=" hasService[0]===0 "  (click)='SelectPreferedServices(11)'  [ngClass]="renderClass(11)">Engine Repair</button></mat-grid-tile>
+                      <mat-grid-tile><button mat-button class="servicesButtons" [disabled]=" hasService[6]===0 "  (click)='SelectPreferedServices(17)'  [ngClass]="renderClass(17)">Interior Cleaning</button></mat-grid-tile> 
+                    </mat-grid-list>
+                  </div>
+                  
+
+            <div class = "buttons">
+              <button mat-button matStepperPrevious class="backButton" (click)='EmptySelectedServices()' ><mat-icon class='nextbackico'>arrow_back_ios</mat-icon>Back</button>
+              <button mat-button matStepperNext class="nextButton" (click)='checkWithDuration()'  [disabled]="selected_services_id.length===0 ">Next<mat-icon class='nextbackico'>arrow_forward_ios</mat-icon></button> 
+            </div>
+        </form>
+      </mat-step>
+
+
+      <mat-step [stepControl]="fifthFormGroup" label="">
+        <form [formGroup]="fifthFormGroup">
+          <ng-template matStepLabel><p class="stepLabel">Choose Date</p></ng-template>
+          <mat-divider></mat-divider>
+
+
+         <div class="topic">
+            Choose your Date
+         </div>
+
+
+      <div class="date">
+        
+
+        <mat-form-field class="example-full-width" appearance="fill" style="display: none;">
+          <input matInput [min]="minDate" [max]="maxDate" [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" disabled  placeholder="Date will be shown here" [(ngModel)]= "selected_date" [ngModelOptions]="{standalone: true}">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker disabled = "false">
+            <mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" id="dateselect" matDatepickerApply   (click) = 'changeDateSelectedMoment()' >Select</button>
+            </mat-datepicker-actions>
+          </mat-datepicker>
+        </mat-form-field>
+        <div class="content">
+          <div class="dateNote">
+            <h2 style="margin:1px;">Note</h2>
+            <p style="margin: 5px;">Availability of the dates will depend upon the duration of the services you have selected in the previous step.</p>
+          </div>
+          <button mat-button (click)="picker.open()"><input type = "text" id="selectedDate" value = {{selected_date_moment}} placeholder="Pick a Date"></button>
+          <button mat-fab (click)="picker.open()"><mat-icon>event</mat-icon></button> 
+        </div>
+      </div>
+
+
+    
+
+
+
+      <div class = "buttons">
+        <button mat-button matStepperPrevious class=" backButton"  (click)='EmptyUnavailableDates()'    ><mat-icon class='nextbackico'>arrow_back_ios</mat-icon>Back</button>
+        <button mat-button matStepperNext class="nextButton" [disabled] ='selected_date_moment==="" '  (click)= "[setTimeSlots(), Map_to_OneTable()]">Next<mat-icon class='nextbackico'>arrow_forward_ios</mat-icon></button> 
+      </div>
+        </form>
+      </mat-step>
+
+
+      <mat-step [stepControl]="sixthFormGroup" label="">
+        <form [formGroup]="sixthFormGroup">
+        <ng-template matStepLabel><p class="stepLabel">Choose Time Slot</p></ng-template>
+        <mat-divider></mat-divider>
+        <div>
+          <div class="topic">
+            Choose your Time Slot
+           
+         </div>
+
+
+
+          <!-- <div style="width: 100%; padding: 0%;">  -->
+
+            <div class="content">
+
+              <table id="timeSlotTable">  
+                <tr class="header">
+                  <th > Available Times</th>
+                  <!-- <th >Location</th> -->
+                </tr>
+                
+                <!-- <div id="tableDIV" *ngIf='Available_slots_table.length > 0'  > -->
+                  
+                    <tr   *ngFor = " let timeslot of Available_slots_table;  index as i "  >
+                      <td  colspan = "12"><button [disabled]= " timeSlot_disable(     printTimeslot_Intable_AM_PM(timeslot.timeSlot_index)     )=='disable' " mat-button class="timeslotButton"  (click)=' timeslot_Select(timeslot.bay_index,timeslot.timeSlot_index) '> {{  printTimeslot_Intable_AM_PM(timeslot.timeSlot_index)  }} </button>  </td>              
+                    </tr>
+                    <!-- {{  printTimeslot_InTable(j)   }} -->
+                <!-- </div> -->
+
+
+              </table>
+
+            </div>
+
+         
+          <!-- </div> -->
+
+        </div>  
+          <div class = "buttons">
+            <button mat-button matStepperPrevious class="backButton" (click) = 'Empty_OneTable_availableSlots()'   ><mat-icon class='nextbackico'>arrow_back_ios</mat-icon>Back</button>
+            <button mat-button matStepperNext class="nextButton" [disabled] ='Selected_Start_Time_index==1000 '  (click) = 'print_selectedServices()'   >Next<mat-icon class='nextbackico'>arrow_forward_ios</mat-icon></button>
+          </div>
+
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="seventhFormGroup" label="">
+        <form [formGroup]="seventhFormGroup">
+          <ng-template matStepLabel><p class="stepLabel">Confirmation</p></ng-template>
+          <mat-divider></mat-divider>
+          <div style = "align-items: center; text-align: center;">
+            <div class="topic">
+              Confirmation
+           </div>
+            <div class="content">
+
+              <div class="serviceAppointConfirmation" >
+                <h1>{{SelectedServiceType}} </h1>
+                <p>{{ TotalServiceDuration_with_hrs_mins }}</p>
+                <p>{{ send_Appointment_date_HTML() }} | {{send_Appointment_duration_range_HTML()}}</p>
+                <p> {{ Selected_serviceStation_Object.st_name }}</p>
+                <table style="width: 100%;">
+                  <tr>
+                    <td style="font-weight: 700;">Selected Services : </td>
+                  </tr>
+                  <tr *ngFor="let service of return_array_serviceNames">       
+                    <td style="text-align: center;"    > {{service}} </td>
+                  </tr>
+                </table>
+                <!-- <p>  Total Service Cost: Rs.{{TotalServiceAmount}}. 00 </p> -->
+                <!-- <p> The total service cost and duration could vary upon the additional services and components selected by the vehicle owner at the service station. </p> -->
+            
+              </div>
+            </div>
+          </div> 
+          <div class = "buttons">
+            <button mat-button matStepperPrevious class="backButton"  (click)= 'empty_return_Services()'><mat-icon class='nextbackico'>arrow_back_ios</mat-icon>Back</button>
+            <button mat-button matStepperNext class="nextButton" id="confirmButton" (click)='confirm_appointment()' >Confirm<mat-icon class='nextbackico'>check</mat-icon></button>
+
+          </div>
+        </form>
+      </mat-step>
+
+    <!-- <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>  -->
+</mat-stepper>
+</div>  

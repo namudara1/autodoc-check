@@ -1,0 +1,115 @@
+.content{
+    position: relative;
+    width: 98%;
+    margin-top: 7%;
+    left: 1%;
+    align-items: center;
+    text-align: center;
+    /* background: red; */
+}
+
+.formclass{
+    position: relative;
+    display: inline-block;
+    text-align: start;
+    margin-top: 0%;
+    left: 1%;
+    height: 90vh;
+    width:90%;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    
+}
+
+#heading{
+    position: relative;
+    top: 50px;
+    text-align: center;
+}
+
+.example-form {
+    min-width: 250px;
+    max-width: 1600px;
+    width: 100%;
+    height: 1000px;
+    position: relative;
+    top: 100px;
+    left: 50px;
+    font-size: 18px;
+  }
+  
+  .example-full-width {
+    width: 100%;
+ 
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+   #name{
+       background: red;
+   }
+
+   #confirmbutton{
+       position: relative;
+       font-size: 22px;
+       border-radius: 10px;
+       padding: 0.8%;
+       padding-left: 2%;
+       padding-right: 2%;
+       background: black;
+       color: white;
+       font-family: Catamaran;
+       box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+       margin: 20px;
+   }
+
+   p{
+       font-weight: bold;
+   }
+
+   #backbutton{
+    position: relative;
+    font-size: 22px;
+    border-radius: 10px;
+    padding: 0.8%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-family: Catamaran;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    margin: 20px;
+}
+
+#backbutton:hover, #confirmbutton:hover{
+    background: blue;
+    color: white;
+    transition: 0.5s;
+}
+
+.buttons{
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+#changePassword{
+    color: rgb(63, 91, 245);
+    font-weight: 700;
+    font-family: catamaran;
+    text-decoration: none;
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+mat-icon{
+    margin: 6%;
+    margin-bottom: 10%;
+    margin-top: 4%;
+
+}

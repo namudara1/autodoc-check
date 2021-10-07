@@ -1,0 +1,56 @@
+.notification{
+    background: rgba(255, 255, 255, 0.719);
+    width: 98%;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.icon-column{
+    width: 7%;
+    text-align: center;
+    /* background: red; */
+}
+
+.icon-column .mat-icon{
+    font-size: 60px;
+    /* color: greenyellow; */
+    margin: 0px auto;
+    width: auto;
+    height: auto;
+}
+
+.done-icon{
+    color: greenyellow;
+}
+
+.schedule-icon{
+    color: orange;
+}
+
+.reminder{
+    color: red;
+}
+
+.clear-column{
+    width: 5%;
+}
+
+p{
+    font-family: Catamaran;
+    margin: 5px;
+}
+
+h3{
+    font-size: 30px;
+    font-family: catamaran;
+    margin: 5px 5px;
+}
+
+.message{
+    font-size: 25px;
+    margin: 5px 5px;
+}
+
+.date-time{
+    color: rgb(165, 165, 165);
+}

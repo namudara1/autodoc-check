@@ -1,0 +1,123 @@
+<div class = "edit">
+   
+    <h2>Edit Your Details</h2>
+   
+    <mat-accordion> 
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Edit Profile Picture
+                </mat-panel-title>
+                <mat-panel-description>
+                    Choose an image
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class = "imgcontent">
+                <img src = "assets/img/user/{{User_details?.owner_img_name}}" id="userimg">
+                <br>
+                <!-- <a mat-button (click) = 'changePic()' id = 'chooseimg'>Change Picture</a> -->
+                <label for="file-upload" class="custom-file-upload">
+                    <input  id="file-upload" type="file"  (change)="chooseFile($event)" accept=".png, .jpg, .jpeg"/>
+                    <mat-icon style="margin: 9px auto;">edit</mat-icon>
+                </label>
+                
+                
+            </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Edit Name
+                </mat-panel-title>
+                <mat-panel-description>
+                    First Name, Last Name
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+                <div class = "namecontent">
+
+                    <mat-form-field appearance = "legacy" hideRequiredMarker id="fname">
+                        <mat-label>First Name</mat-label> 
+                        <input required [(ngModel)]="first_name"  matInput> 
+                        <mat-hint>Type first name</mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field appearance = "legacy" hideRequiredMarker id="lname">
+                        <mat-label>Last Name</mat-label> 
+                        <input required [(ngModel)]="last_name"  matInput> 
+                        <mat-hint>Type last name</mat-hint>
+                    </mat-form-field>
+
+                </div>                          
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Edit Address
+                </mat-panel-title>
+                <mat-panel-description>
+                    Address
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+                <div class="addresscontent" style="text-align: left;">
+                    <mat-form-field appearance = "legacy" hideRequiredMarker id="fname">
+                        <mat-label>Address</mat-label> 
+                        <input required [(ngModel)]="address"  matInput> 
+                    </mat-form-field>  
+                </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title style="text-align: start;">
+                    Edit Contact Details
+                </mat-panel-title>
+                <mat-panel-description>
+                    Mobile Number, Email address
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+                <mat-form-field appearance = "legacy" hideRequiredMarker>
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput required [(ngModel)]="mobile_no"  mask="(000) 000-0000">
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy" hideRequiredMarker>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Ex: pat@example.com" [(ngModel)]="email_addr"  required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+             
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title style="text-align: start;">
+                    Add / Remove Vehicles
+                </mat-panel-title>
+                <mat-panel-description>
+                    Edit your vehicle's details
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+                <div class = "vehiclecontent">
+                    <div *ngFor="let vehicleRow of vehicleRows " class="vehicleDIV">
+                        <a mat-button  id = 'vehiclebutton'><P>{{vehicleRow.vehicle_number}}</P><img src = "assets/img/pic/{{vehicleRow.vehicle_img_name}}"></a>
+                        <button mat-icon-button class="removeVehicle" (click)='remove_Vehicle(vehicleRow)'><mat-icon>delete</mat-icon></button> 
+                    </div>
+                    <div class = 'addbuttonDIV'>
+                        <button mat-fab color="primary" class='addvehicle' (click)="openDialog2()"><mat-icon>add</mat-icon></button>    
+                    </div>
+                </div>
+        </mat-expansion-panel>
+        
+    </mat-accordion>
+    <a id="changePassword" (click)="openDialog()">Change Password</a>
+        <div class="buttons">
+            <button mat-button id="backbutton" (click) = 'back_button()' ><mat-icon>arrow_back_ios</mat-icon>BACK</button>
+            <button mat-button id="confirmbutton" (click)='confirm_edit()'>CONFIRM<mat-icon>check</mat-icon></button>
+        </div>
+</div>
+
+

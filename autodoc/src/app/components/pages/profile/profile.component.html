@@ -1,0 +1,244 @@
+<div class="container">
+    <div  class = "tabs">
+        <mat-tab-group id="tabs">
+            <mat-tab id = "profile"> 
+                <ng-template mat-tab-label>
+                    <mat-icon class="mobile">account_circle</mat-icon>
+                    <p class="desktop">Profile</p>
+                  </ng-template>
+                <div class = "profile">
+                    <div class="desktop">
+                        <table class="profinfo">
+                            <tr>
+                                <td style=" width: 45%; text-align: center;">
+                                    <img src = "assets/img/user/{{User_details?.owner_img_name}}" id ="userimg"> 
+                                </td>
+                                <td>
+                                    <h1>{{User_details?.first_name}} {{User_details?.last_name}}</h1>
+                                    <p><mat-icon style="margin-right: 5px;">place</mat-icon>{{User_details?.home_town}} </p>
+                                    <p><mat-icon style="margin-right: 5px;">phone</mat-icon>{{User_details.mobile}}</p>
+                                    <p><mat-icon style="margin-right: 5px;">alternate_email</mat-icon>{{User_details?.email}}  </p>
+                                    <a mat-icon-button matTooltip="Edit your profile details" [routerLink]="['/editowner',UserIdfromSession]" id = 'editbutton'><mat-icon style="font-size: 30px;">edit</mat-icon></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="mobile">
+                        <table class="profinfo">
+                            <tr>
+                                <td style=" width: 45%; text-align: center;">
+                                    <img src = "assets/img/user/{{User_details?.owner_img_name}}" id ="userimg"> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h1>{{User_details?.first_name}} {{User_details?.last_name}}</h1>
+                                    <p><mat-icon style="margin-right: 5px;">place</mat-icon>{{User_details?.home_town}} </p>
+                                    <p><mat-icon style="margin-right: 5px;">phone</mat-icon>{{User_details.mobile}}</p>
+                                    <p><mat-icon style="margin-right: 5px;">alternate_email</mat-icon>{{User_details?.email}}  </p>
+                                    <a mat-icon-button [routerLink]="['/editowner',UserIdfromSession]" id = 'editbutton'><mat-icon style="font-size: 30px;">edit</mat-icon></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    
+
+                    <div class = "vehiclecontent">
+                        <!-- <h5>Your Vehicles</h5> -->
+                        <a mat-button  *ngFor="let vehicleRow of vehicleRows "  id = 'vehiclebutton'><img src = "assets/img/pic/{{vehicleRow.vehicle_img_name}}"></a>
+                        <!-- <a mat-button  id = 'vehiclebutton'><img src = "assets/img/pic/premio.jpg"></a> -->
+                    
+                    </div>
+
+                    
+                </div>
+
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="mobile">history</mat-icon>
+                    <p class="desktop">Appointments History</p>
+                </ng-template>
+                
+                <input type="text" id="serviceStationSearch" class="form-control"  placeholder=" Search Appointments" title="Type in a name" [(ngModel)]="searchedKeyword" [ngModelOptions]="{standalone: true}"  > 
+                    <div class="content">
+                        <table id="appointmenthistory">
+                            <thead>
+                                <tr class="header">
+                                <th style="width: 7%; text-align: start;">Vehicle Reg. Number</th>
+                                <th style="width: 7%; text-align: center;">Appointment ID</th>
+                                <th style="width: 10%;">Date</th>
+                                <th style="width: 12%;">Time</th>
+                                <th style="width: 12%;">Service Station</th>
+                                <th class = "serviceLocation" style="width: 2%;">Bay ID</th>
+                                <th style="width: 12%;">Completion Status</th>
+                                <th style="width: 5%;"> Invoice </th>
+                                <th class = "serviceLocation" style="width: 5%;">Rate</th>
+                                <th style="width: 5%;">Cancel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let AppointmentRow of AppointmentRows |filter:searchedKeyword " >
+                                <td data-label="Vehicle Reg.Number" id="vehicleRegNo">{{AppointmentRow.vehicle_number}}</td>
+                                <td data-label="Appointment ID" id="appointment_id">{{AppointmentRow.appointment_id}}</td>
+                                <td data-label="Date" >{{AppointmentRow.date}}</td>
+                                <td data-label="Time">{{AppointmentRow.time}}</td>
+                                <td data-label="Service Station" >{{AppointmentRow.st_name}}</td>
+                                <td data-label="Station-Bay ID">{{AppointmentRow.bay_id}}</td>
+                                <td data-label="Completion Status">{{ checkCompletion(AppointmentRow) }}  <mat-icon style="float: right; margin-right: 15px;"> {{ Get_Mat_icon( checkCompletion(AppointmentRow)    )  }} </mat-icon> </td>
+                                <!-- <td data-label="Completion Status" style="text-align: right;"> {{ checkCompletion(AppointmentRow) }}  <mat-icon style="padding: 3%;"> {{ Get_Mat_icon( checkCompletion(AppointmentRow)    )  }} </mat-icon> </td> -->
+                                <td data-label="Invoice"><button mat-icon-button class="invoiceButton" matTooltip="View Invoice"  (click)='OpenPDF_Invoice(AppointmentRow.appointment_id)' [disabled] ='checkCompletion(AppointmentRow) === "on-going" || checkCompletion(AppointmentRow) === "yet to start" '><mat-icon>description</mat-icon></button></td>
+                                <td data-label="Rate">
+                                    <button mat-icon-button class='ratebutton' matTooltip="Rate Experience" [disabled]= "disabled_rating(AppointmentRow)=== 'disable'  " (click)= "openDialog(AppointmentRow)" ><mat-icon>star</mat-icon></button>
+                                    
+                                </td>
+                                <td data-label="Cancel" id="removeButtonTd">
+                                    <button mat-icon-button matTooltip="Cancel Appointment" class="cancelButton" (click)= " delete_appointment(AppointmentRow) " [disabled]= "check_delete_disable(AppointmentRow)=== 'disable'  " ><mat-icon>cancel</mat-icon></button>
+                                </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="mobile">sync_alt</mat-icon>
+                    <p class="desktop">On-going Appointment Status</p>
+                </ng-template> 
+            <div class="desktop">
+                <div *ngIf="Ongoing_appointment_arr.length > 0; else elseBlock" class = "progress" >
+                    <div  *ngFor="let ongoing_appointment of Ongoing_appointment_arr " >
+                    <table class='eachservicetable'>
+                        <tr>
+                            <td class='spinner'>
+                                    <mat-progress-spinner
+                                    class="example-margin"
+                                    [color]="color"
+                                    [mode]="mode"
+                                    [value]="ongoing_appointment.value"
+                                    [diameter]=diameter>
+                                    </mat-progress-spinner>
+            
+                                    <img src = "assets/img/ico/maintenance.png" id="statusimg">
+                            </td>
+
+                            <td class = "details">
+                                <div>
+
+                                    <h4>{{ongoing_appointment.value}}% Completed</h4>
+                                    
+                                    <table id= "service">
+            
+                                        <tr>
+                                            <td style="padding-right: 10px;">Duration </td>
+                                            <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.time}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right: 10px;">Appointment ID </td>
+                                            <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.appointment_id}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right: 10px;">Vehicle Make </td>
+                                            <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.make}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right: 10px;">Vehicle Model </td>
+                                            <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.model}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right: 10px;">Vehicle Reg.No </td>
+                                            <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.vehicle_number}}</td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                        
+
+                        
+                    </div>
+                </div> 
+            </div>
+            <div class="mobile">
+                <div class="content" style="max-height: 82vh;">
+                    <div *ngIf="Ongoing_appointment_arr.length > 0; else elseBlock" class = "progress" >
+                        <div  *ngFor="let ongoing_appointment of Ongoing_appointment_arr " >
+                        <table class='eachservicetable'>
+                            <tr>
+                                <td class='spinner'>
+                                        <mat-progress-spinner
+                                        class="example-margin"
+                                        [color]="color"
+                                        [mode]="mode"
+                                        [value]="ongoing_appointment.value"
+                                        [diameter]=diameter>
+                                        </mat-progress-spinner>
+                
+                                        <img src = "assets/img/ico/maintenance.png" id="statusimg">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class = "details">
+                                    <div>
+
+                                        <h4>{{ongoing_appointment.value}}% Completed</h4>
+                                        
+                                        <table id= "service">
+                
+                                            <tr>
+                                                <td style="padding-right: 10px;">Duration </td>
+                                                <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.time}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right: 10px;">Appointment ID </td>
+                                                <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.appointment_id}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right: 10px;">Vehicle Make </td>
+                                                <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.make}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right: 10px;">Vehicle Model </td>
+                                                <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.model}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right: 10px;">Vehicle Reg.No </td>
+                                                <td style="text-align: end; font-weight: 700; padding-right: 10px;">{{ongoing_appointment.vehicle_number}}</td>
+                                            </tr>
+                                            
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                            
+
+                            
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+            <ng-template #elseBlock>
+                    <p style="text-align: center; margin-top: 8%;">No On-Going Service Available.</p>
+            </ng-template>
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon matBadge="3" matBadgeColor="warn" class="notifications">notifications</mat-icon>
+                  </ng-template>
+
+                <app-notifications></app-notifications>
+
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
+
+</div>  

@@ -1,0 +1,461 @@
+p{
+    font-size: 30px;
+}
+
+.edit{
+    margin: 1% auto;
+    background: rgba(255, 255, 255, 0.5);
+    width: 96%;
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+}
+
+mat-panel-title{
+    font-family: catamaran;
+    font-size: 25px;
+}
+
+mat-panel-description{
+    display: inline-block;
+    text-align: end;
+    font-size: 20px;
+    color: #616161;
+    font-family: catamaran;
+    /* left: 620px;
+    width: 500px; */
+    margin: 5px 20px;
+    /* float: right;   */
+    /* background: red;   */
+}
+
+mat-expansion-panel-header{ 
+    padding: 20px;
+}
+
+mat-expansion-panel{
+    background-color: rgb(240, 240, 240);
+}
+
+#userimg{
+    width: 250px;
+    height: 250px;
+    margin-top: 10px;
+    border: 7px solid rgba(255, 255, 255, 1);
+    border-radius: 5px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 1);
+    /* border: 1px solid #ccc; */
+    border-radius: 100%;
+    display: inline-block;
+    padding: 6px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+ 
+.example-form-field {
+    width: 200px;
+  }
+
+
+.imgcontent{
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    width: 290px; 
+    height: 290px;  
+    margin: 10px auto;
+    /* background: red; */
+}
+
+
+
+.namecontent{
+    margin: 5px auto;
+    /* background: red; */
+}
+
+.addresscontent{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+mat-form-field{
+    width: 600px;
+    font-family: catamaran;
+    font-size: 25px;
+    margin: 10px 20px;
+    /* color: white; */
+    /* font-weight: 700; */
+  }
+
+mat-hint{
+    font-size: 15px;
+  }
+
+mat-option{
+    font-family: catamaran;
+}
+
+mat-select{
+    font-family: catamaran;
+}
+
+.vehiclecontent{
+    /* display: inline-block; */
+    align-items: center;
+    text-align: center;
+    width: 98%;
+    margin: 0px auto;
+    padding: 10px;
+    /* background: wheat;    */
+}
+
+
+.vehicleDIV{
+    display: inline-block;
+    width: 17%;
+    /* height: 90%; */
+    justify-content:center;
+    /* background: red; */
+    margin: 5px 10px;
+   
+}
+
+.removeVehicle{
+    /* border: 2px solid crimson; */
+    font-size:larger;
+    background: rgb(255, 255, 255);
+    bottom: 40px;
+    z-index: 1;
+}
+.removeVehicle:hover{
+    background-color:crimson;
+    transition: 0.45s;
+    color: white;
+}
+
+
+#vehiclebutton img, .addcar img{
+    width: 90%;
+    height: 80%;
+    margin: 6% auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 15px rgba(15, 3, 124, 0.1);
+    filter: brightness(60%);
+}
+
+#vehiclebutton img:hover{
+    width: 95%;
+    height: 85%;
+    transition: 0.3s;
+    margin-top: 1%;
+    filter: brightness(100%);
+}
+
+#vehiclebutton, .addcar{
+    display: inline-block;
+    width: 220px;
+    height: auto;
+    padding-bottom: 2%;
+    padding-top: 10%;
+    margin: 1% auto;
+    color: rgba(255, 255, 255, 0.7);
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    justify-content: center;
+}
+
+#vehiclebutton p{
+    position:relative;
+    /* margin-top: 80px; */
+    /* margin-left: 26px; */
+    filter: brightness(100%);
+    
+  }
+  
+  #vehiclebutton:focus img,#vehiclebutton:focus p {
+    filter: brightness(100%);
+    color: white;
+  }
+
+
+mat-expansion-panel{
+    background: rgba(223, 223, 223, 0.2);
+}
+
+.addvehicle{
+    float: right;
+    bottom: 1px;
+    right: 1px;
+}
+
+
+
+#confirmbutton{
+    position: relative;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 0.8%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background: rgb(6, 177, 0);
+    color: white;
+    font-family: Catamaran;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    margin: 20px;
+}
+
+#backbutton{
+    position: relative;
+    font-size: 22px;
+    border-radius: 10px;
+    padding: 0.8%;
+    padding-left: 2%;
+    padding-right: 5%;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-family: Catamaran;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    margin: 20px;
+}
+
+#backbutton:hover, #confirmbutton:hover{
+    background: blue;
+    color: white;
+    transition: 0.5s;
+}
+
+.buttons{
+    margin: 00px auto;
+    margin-bottom: 50px;
+    width: 50%;
+    /* background: red; */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+}
+
+mat-icon{
+    margin: 6%;
+    margin-bottom: 10%;
+    margin-top: 4%;
+
+}
+#changePassword{
+    color: rgb(63, 91, 245);
+    font-weight: 700;
+    font-family: catamaran;
+    text-decoration: none;
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+
+
+/* ::ng-deep .mat-dialog-container {
+    height: 400px !important;
+    width: 400px !important;
+} */
+
+/* ::ng-deep .mat-dialog-container {
+    height: 400px !important;
+    width: 400px !important;
+} */
+
+@media all and (max-width:767px) {
+    .edit{
+        margin: 16% auto;
+        background: rgba(255, 255, 255, 0.5);
+        width: 95%;
+        border-radius: 15px;
+        padding: 5px;
+        align-items: center;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    mat-panel-title{
+        font-family: catamaran;
+        font-size: 15px;
+    }
+    
+    mat-panel-description{
+        display: inline-block;
+        text-align: end;
+        font-size: 13px;
+        color: #616161;
+        font-family: catamaran;
+        /* left: 620px;
+        width: 500px; */
+        margin: 5px 10px;
+        /* float: right;   */
+        /* background: red;   */
+    }
+
+    mat-expansion-panel-header{ 
+        padding: 5px 10px;
+    }
+
+    mat-form-field{
+        width: 90%;
+        font-family: catamaran;
+        font-size: 15px;
+        margin: 5px 5px;
+        /* color: white; */
+        /* font-weight: 700; */
+      }
+    
+    mat-hint{
+        font-size: 15px;
+      }
+    
+
+    #changePassword{
+        font-size: 15px;
+    }
+
+    .buttons{
+        width:100%;
+        padding-top: 5%;
+        margin: 10px auto;
+        padding-bottom: 5%;
+    }
+
+    #confirmbutton{
+        position: relative;
+        font-size: 15px;
+        border-radius: 10px;
+        padding: 0.8%;
+        padding-left: 2%;
+        padding-right: 2%;
+        background: rgb(6, 177, 0);
+        color: white;
+        font-family: Catamaran;
+        box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+        margin: 10px;
+        /* display: inline-block; */
+    }
+    
+    #backbutton{
+        position: relative;
+        font-size: 15px;
+        border-radius: 10px;
+        padding: 1%;
+        padding-left: 2%;
+        padding-right: 5%;
+        background: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-family: Catamaran;
+        box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+        margin: 10px;
+        /* display: inline-block; */
+    }
+    .mat-icon{
+        font-size: 22px;
+    }
+
+    .vehiclecontent{
+        /* display: inline-block; */
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        margin: 0px auto;
+        padding: 0px;
+        /* background: wheat;    */
+    }
+    
+    
+    .vehicleDIV{
+        display: inline-block;
+        width: 49%;
+        /* height: 90%; */
+        justify-content:center;
+        /* background: red; */
+        margin: 0px 0px;
+        /* border: 1px solid black; */
+       
+    }
+    
+
+    #vehiclebutton img, .addcar img{
+        width: 95%;
+        height: 95%;
+        margin: 1% auto;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px 15px rgba(15, 3, 124, 0.1);
+        filter: brightness(100%);
+    }
+    
+    #vehiclebutton img:hover{
+        width: 95%;
+        height: 85%;
+        transition: 0.3s;
+        margin-top: 1%;
+        filter: brightness(100%);
+    }
+    
+    #vehiclebutton, .addcar{
+        /* background: cadetblue; */
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        padding-bottom: 12%;
+        padding-top: 0%;
+        margin: 0% auto;
+        color: rgba(255, 255, 255, 0.8);
+        align-items: center;
+        text-align: center;
+        font-size: 15px;
+        justify-content: center;
+    }
+    
+    #vehiclebutton p{
+        position:relative;
+        /* margin-top: 80px; */
+        /* margin-left: 26px; */
+        filter: brightness(100%);
+        
+      }
+      
+      #vehiclebutton:focus img,#vehiclebutton:focus p {
+        filter: brightness(100%);
+        color: white;
+      }
+
+      .removeVehicle{
+        /* border: 2px solid crimson; */
+        font-size:larger;
+        background: rgb(255, 255, 255);
+        bottom: 40px;
+        z-index: 1;
+    }
+    .removeVehicle:hover{
+        background-color:rgb(255, 255, 255);
+        transition: 0.45s;
+        color: rgb(0, 0, 0);
+    }
+    
+    p{
+        font-size: 20px;
+    }
+    
+}

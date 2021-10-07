@@ -1,0 +1,129 @@
+<div class="container">
+    <!-- <h1 mat-dialog-title>Full Service</h1> -->
+
+    <div *ngIf="data.appointment.isonline!=='free';then content else other_content"></div>
+
+    <ng-template #content>
+        <div mat-dialog-content>
+            <table>
+                <tr>
+                    <td>Appointment ID:</td>
+                    <td>{{data.appointment.appointment_id}}</td>
+                </tr>
+                <tr>
+                <td>Vehicle Reg.No:</td>
+                <td>{{data.appointment.vehicle_number}}</td>
+            </tr>
+
+            <div *ngIf="data.appointment.isonline=='0';then content else other_content"></div>
+            <ng-template #content>
+                    <tr>
+                        <td>Owner:</td>
+                        <td>{{data.appointment.manual_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contact No:</td>
+                        <td>{{data.appointment.manual_mobile}}</td>
+                    </tr>
+                </ng-template> 
+                <ng-template #other_content>
+                    <tr>
+                        <td>Owner:</td>
+                        <td>{{owner_vehicle_online?.first_name}} {{owner_vehicle_online?.last_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contact No:</td>
+                        <td>{{owner_vehicle_online?.mobile}}</td>
+                    </tr>
+                </ng-template>
+
+            <tr>
+                <td>Time:</td>
+                <td>{{get_time_range(data.appointment.time, data.appointment.duration_hrs)}}</td>
+            </tr>
+            <tr>
+                <td>Booking Type:</td>
+                <td>{{ getBookingType()  }}</td>
+            </tr>
+            <tr>
+                <td>Selected Services:</td>
+                <td>
+                    <ul>
+                    <li *ngFor="let service of services_of_selected_appointment" >{{service.service_name}}</li>
+                    </ul>
+                </td>
+            </tr>
+                
+                
+            
+            <tr>
+                <td><button mat-button [disabled]= "appointment_delete_disable(data.appointment.time)=='disable'  " (click)="delete_appointment(data.appointment) ">Remove Appointment <mat-icon>delete</mat-icon> </button></td>
+            </tr>
+
+            </table>
+        </div>
+        
+    </ng-template> 
+
+    <ng-template #other_content style="width: 100%;">
+        <div mat-dialog-content>
+            <h1>New Appointment</h1>
+
+            <mat-form-field appearance="legacy" style="width: 40%;">
+                <mat-label>Owner Name :</mat-label>
+                <input [(ngModel)]="service_owner_name" required matInput > 
+                <!-- <mat-hint>Ex. KV-8241</mat-hint>  -->
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" style="width: 25%;">
+                <mat-label>Contact No. :</mat-label>
+                <input [(ngModel)]="service_owner_mobile" required matInput mask="(000)-00 00 000"> 
+                <!-- <mat-hint>Ex. (071)-12 34 567</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" style="width: 25%;">
+                <mat-label>Vehicle Reg.No :</mat-label>
+                <input required [(ngModel)]="service_vehicle_number" matInput > 
+                <mat-hint>KV-8241</mat-hint>
+            </mat-form-field>
+            
+            <div class="content">
+                <table>
+                    <tr>
+                        <td>Free Time Duration:</td>
+                        <td>{{get_time_range(data.appointment.time, data.appointment.duration_hrs)}}</td>
+                    </tr>
+                <tr>
+                    <td style="font-weight: 700;">Select Services:</td>
+                    <!-- <td>{{ getBookingType()  }}</td> -->
+                    
+                </tr>
+
+                <tr *ngFor="let service of availableServices; index as i">
+                    <td style="width: 40%; text-align: end;"> <mat-checkbox (change)='add_remove_selected(service)'  [disabled]="check_disable_service(service)=='disable' "></mat-checkbox> </td>
+                    <td> <label class=" "   > {{service.service_name}} </label>  </td>
+                    <td style="text-align: left;">{{service.duration_hrs}} hrs</td>
+                </tr>
+
+                </table>
+                <div *ngIf="selected_service_duration!==0 ">
+                    <table id="timeSlotTable"  style="margin: 1%;">  
+                        <tr class="header" >
+                        <th > Available Times</th>
+                        </tr>
+                        <tr   *ngFor = " let timeslot of timeSlot_button_arr;  index as i "  >
+                            <td  colspan = "12"><button mat-button class="timeslotButton"  (click)=" select_timeSlot(timeslot)"   [disabled]=" timeSlot_disable(timeslot)=='disable'  "   [ngClass]="{'selected_timeSlot_css':  selected_timeSlot== timeslot }"> {{ get_time_AM(timeslot)  }}</button>  </td>              
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+                                       
+            <div class="buttons">
+                <button mat-button id="setAppointment" [disabled]= "disable_set_appointment()=='disable' " (click)="confirm_appointment() ">Confirm <mat-icon>done</mat-icon></button>
+            </div>
+        </div>
+        
+    </ng-template>
+</div>
+

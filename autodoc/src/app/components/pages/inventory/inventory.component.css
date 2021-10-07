@@ -1,0 +1,66 @@
+.container{
+    margin: 1% auto;
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  th, td {
+      font-size: 1em;
+  }
+
+  h1{
+    float: left;
+    margin-bottom: 3%;
+    color: black;
+    font-size: 3em;
+    /* background: red; */
+    /* text-shadow: 1px 1px 5px black; */
+  }
+  
+  .searchbox {
+    float: right;
+    width: 40%;
+    height: 2em;
+    font-family: Catamaran;
+    font-size: 100%;
+    border-radius: 50px;
+    /* background: red; */
+    padding: 0%;
+    margin-bottom: 3%;
+    font-size: 35px;
+  }
+
+  .mat-icon{
+    margin-right: 2%;
+  }
+
+  .mat-button{
+    margin: 1% 1%;
+  }
+  
+
+ .example-button-container {
+  /* display: flex; */
+  /* justify-content: center; */
+  width: auto;
+  float: right;
+}
+
+.addButton{
+  background: red;
+  float: right;
+}
+
+.topic{
+  width: 32%;
+  height: 5%;
+  padding: 0px;
+  /* background: yellow; */
+  float: left;
+}

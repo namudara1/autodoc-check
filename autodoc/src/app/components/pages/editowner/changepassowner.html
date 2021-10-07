@@ -1,0 +1,143 @@
+<style>
+
+::ng-deep .mat-dialog-container {
+    height: auto !important;
+    width: auto !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.container{
+    align-items: center;
+    text-align: center;
+    height: 500px;
+    width: 400px;
+    background:rgba(24, 124, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* -moz-backdrop-filter: blur(10px);
+    -ms-backdrop-filter: blur(10px);
+    -o-backdrop-filter: blur(10px); */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+    
+img{
+    width: 100px;
+    height: 100px;
+    margin-top: 6%;
+    filter: invert(1);
+}
+
+h1{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+a{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #aeaeec;
+    cursor: pointer;
+}
+
+input{
+    width: 80%;
+    /* height: 60%; */
+    background: rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.465)
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.466);
+    opacity: 10;
+    
+  }
+
+button{
+    margin-top: 5%;
+    width: 85%;
+    background: rgb(0, 16, 161);
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    font-family: catamaran;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+    border: 1px solid rgb(146, 192, 253);
+    border-radius: 20px;
+}
+
+/* mobile responsive */
+
+@media all and (max-width:767px) {
+
+    ::ng-deep .mat-dialog-container {
+        height: auto !important;
+        width: 100vw !important;
+        background: none !important;
+        box-shadow: none !important;
+        padding: 0px !important;
+}
+
+    .container{
+        height: 500px;
+        width: 100%;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        -moz-backdrop-filter: blur(10px);
+        -ms-backdrop-filter: blur(10px);
+        -o-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    input{
+        font-size: 15px;
+        width: 70%;
+    }
+
+    button{
+        width: 80%;
+        font-size: 15px;
+    }
+    
+}
+
+
+</style>
+<div class='container'>
+    <div mat-dialog-content>
+        <div class = "content">
+            <img src="assets/img/ico/pass.png">
+            <br>
+            <h1>Change Password</h1>
+            <br>
+            <input type="password" id="old-pass" name="old-pass" required placeholder="Type Old Password">
+            <br>
+            <input type="password" id="new-pass" name="new-pass" required placeholder="Type New Password">
+            <br>    
+            <input type="password" id="re-new-pass" name="re-new-pass" required placeholder="Re-type New Password" style="margin-bottom: 20px;">
+            <br>    
+
+            <div class = "buttons">
+                <button mat-button id="deletebutton">Change</button>
+                
+            </div> 
+        </div>
+    </div>
+</div>

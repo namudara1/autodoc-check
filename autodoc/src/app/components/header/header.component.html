@@ -1,0 +1,66 @@
+<header>
+  <div class="navbar">
+    
+      <!-- <div fxShow="true" fxHide.gt-sm="true">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div> -->
+
+     
+      
+      <div class = "button">
+        <button mat-button class ="logo" routerLink="/">
+          <img src="assets/img/logo/autodoc.png">
+        </button>
+
+          <div class = "navbuttons">
+            <a mat-button href="/" id = 'home'>HOME</a>
+            <a mat-button routerLink="/about" id = 'about'>ABOUT</a>
+            <a mat-button routerLink="/booking" id = 'booking'>BOOKING</a>
+            <a mat-button routerLink="/services" id = 'services'>SERVICES</a>
+            <a mat-button id = 'login' [matMenuTriggerFor]="belowMenu">LOGIN</a>
+            <mat-menu #belowMenu="matMenu" yPosition="below">
+              <button mat-menu-item routerLink="/stationprofile">Service Station</button>
+              <button mat-menu-item routerLink="/profile">Vehicle Owner</button>
+              <button mat-menu-item (click)="openDialog()">Logout</button>
+            </mat-menu>
+            <!-- <button mat-raised-button color="warn"><a routerLink="/login">SIGN IN</a></button> -->
+          </div>
+
+          <div class = "mobile">
+
+            <a mat-button routerLink="/about"><mat-icon>info</mat-icon></a>
+            <a mat-button routerLink="/booking"><mat-icon>control_point</mat-icon></a>
+            <a mat-button routerLink="/services"><mat-icon>engineering</mat-icon></a>
+            <a mat-button [matMenuTriggerFor]="belowMenu" style="float: right;"><mat-icon>person</mat-icon></a>
+            <mat-menu #belowMenu="matMenu" yPosition="below">
+              <button mat-menu-item routerLink="/stationprofile">Service Station</button>
+              <button mat-menu-item routerLink="/profile">Vehicle Owner</button>
+              <button mat-menu-item>Logout</button>
+            </mat-menu>
+            <!-- <button mat-raised-button color="warn"><a routerLink="/login">SIGN IN</a></button> -->
+          </div>
+      </div>
+   
+    <!-- <mat-sidenav-container fxFlexFill class="example-container">
+  
+      <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+        <div fxLayout="column">
+          <a mat-button routerLink="/about-us">About us</a>
+          <a mat-button routerLink="/prices">Prices</a>
+          <a mat-button routerLink="/start-page">Start page</a>
+          <a mat-button routerLink="/offer">Offer</a>
+          <a mat-button routerLink="/contact">Contact</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content fxFlexFill>
+        Awesome content
+      </mat-sidenav-content>
+    </mat-sidenav-container> -->
+   
+  </div>
+ 
+</header>
+
+<router-outlet></router-outlet>

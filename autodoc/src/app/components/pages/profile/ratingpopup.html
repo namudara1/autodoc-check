@@ -1,0 +1,22 @@
+
+<div class='container'>
+    <h1>How is your Experience at</h1>
+  
+    <p>{{data.appointmentRow.st_name}}</p>
+    <div mat-dialog-content>
+        <div class = "desktop">
+            <div class = "ratebutton"><button mat-fab id="worse"  (click) = "rate_station(1)" > <mat-icon>sentiment_very_dissatisfied</mat-icon> </button> <p>Worse</p></div>
+            <div class = "ratebutton"><button mat-fab id="bad" (click) = "rate_station(2)"> <mat-icon>sentiment_dissatisfied</mat-icon> </button><p>Bad</p></div>
+            <div class = "ratebutton"><button mat-fab id="neutral" (click) = "rate_station(3)"> <mat-icon>sentiment_neutral</mat-icon> </button><p>Neutral</p></div>
+            <div class = "ratebutton"><button mat-fab id="good" (click) = "rate_station(4)"> <mat-icon>sentiment_satisfied</mat-icon> </button><p>Good</p></div>
+            <div class = "ratebutton"><button mat-fab id="excellent" (click) = "rate_station(5)"> <mat-icon>sentiment_very_satisfied</mat-icon> </button><p>Exelent</p></div>
+        </div>
+        <div class = "mobile">
+            <div class = "ratebutton"><button mat-mini-fab id="worse"  (click) = "rate_station(1)" > <mat-icon>sentiment_very_dissatisfied</mat-icon> </button> <p>Worse</p></div>
+            <div class = "ratebutton"><button mat-mini-fab id="bad" (click) = "rate_station(2)"> <mat-icon>sentiment_dissatisfied</mat-icon> </button><p>Bad</p></div>
+            <div class = "ratebutton"><button mat-mini-fab id="neutral" (click) = "rate_station(3)"> <mat-icon>sentiment_neutral</mat-icon> </button><p>Neutral</p></div>
+            <div class = "ratebutton"><button mat-mini-fab id="good" (click) = "rate_station(4)"> <mat-icon>sentiment_satisfied</mat-icon> </button><p>Good</p></div>
+            <div class = "ratebutton"><button mat-mini-fab id="excellent" (click) = "rate_station(5)"> <mat-icon>sentiment_very_satisfied</mat-icon> </button><p>Exelent</p></div>
+        </div>
+    </div>
+</div>

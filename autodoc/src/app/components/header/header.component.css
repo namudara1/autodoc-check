@@ -1,0 +1,183 @@
+
+a {
+  text-decoration: none;
+  font-size: 110%;
+  white-space: normal;
+}
+
+.logo{
+  margin-top: 0px;
+  position: absolute;
+  top: 1%;
+
+}
+
+#home, #booking, #services, #about, #login {
+  position: relative;
+  /* background: red; */
+  width: 10%;
+  height: 5%;
+  font-size: 15px;
+  margin: 0% 2%;
+}
+
+#login{
+  float: right;
+}
+
+  /*copied button CSS*/
+  .button a {
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0px 0px;
+    font-weight: bold;
+    font-family: 'Catamaran', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    
+    /* identical to box height */
+    color: #ffffff;
+  }
+  
+  
+
+  /*Logo*/
+  .logo img{
+  /* position: relative; */
+  width: 100%;
+  mix-blend-mode: hard-light;
+  }
+
+  @media all and (max-width:320px){
+    
+  }
+
+  @media all and (min-width:320px){
+  
+    #home, #booking, #services, #about, #login {
+      display: none;
+    }
+    
+    .logo{
+      width: 24%;
+    }
+
+    .mobile{
+      position: absolute;
+      top: 2%;
+      left: 20%;
+      width: 80%;
+      display: inline-block;
+      /* background-color: red; */
+    }
+    
+    
+  }
+  
+  @media all and (min-width:768px){
+    .mobile{
+      display: none;
+    }
+    #home, #booking, #services, #about, #login {
+      display: inline-block;
+    }
+    .button a{
+      display: inline-block;
+      color: white;
+     
+    }
+
+    .button{
+      display: inline-block;
+      /* background: red; */
+      width: 100%;
+      height: 100px;
+    }
+    #home, #booking, #services, #about, #login{
+      font-size: 20px;
+      padding-right: 10px;
+      padding-left: 10px;
+      width: auto;
+      margin-top: 0;
+    }
+
+    .checkbtn, #check{
+      display: none;
+    }
+    
+    .navbuttons{
+      position: relative;
+      height: auto;
+      width: auto;
+      margin-left: 25%;
+      margin-top: 4%;
+      background: transparent;
+      font-size: 25px;
+      
+    }
+    #login{
+      float: right;
+    }
+
+    .logo{
+      width: 14%;
+    }
+   
+  }
+  
+  @media all and (min-width:1024px){
+    .button a{
+      color: white;
+      display: inline-block;
+      
+    }
+    #home, #booking, #services, #about, #login{
+      font-size: 23px;
+      padding-right: 15px;
+      padding-left: 15px;
+      width: auto;
+      
+    }
+    .navbuttons{
+      margin-top: 3%;
+    }
+    .checkbtn, #check{
+      display: none;
+    }
+    
+    .logo{
+        width: 12%;
+    }
+  }
+  
+  @media all and (min-width:1200px){
+    .button a{
+     color: white;
+    }
+
+    .logo{
+      width:10%;
+    }
+
+    .navbuttons{
+      margin-top: 2%;
+    }
+
+    #home, #booking, #services, #about, #login{
+      font-size: 23px;
+      padding-right: 20px;
+      padding-left: 20px;
+      width: auto;
+      margin-top: auto;
+      
+    }
+    .checkbtn, #check{
+      display: none;
+    }
+
+  
+  }
+
+  

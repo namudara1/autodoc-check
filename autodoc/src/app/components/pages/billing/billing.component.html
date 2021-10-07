@@ -1,0 +1,107 @@
+
+<div class="container">
+  <mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile colspan='1'>
+      <mat-card class="carpad">
+        <mat-card-title>Main Services</mat-card-title>
+        
+        
+
+
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan='2'>
+      <mat-card class="billingbg">
+
+        <mat-card-title fxLayoutAlign="center">Invoice</mat-card-title>
+
+        <mat-grid-list cols="2" rowHeight="5:1" class="leftgrid">
+          <mat-grid-tile class="leftgrid">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Invoice No.</mat-label>
+              <input matInput placeholder="165223" value="165223">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile class="leftgrid">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Date</mat-label>
+              <input matInput placeholder="2021-07-13" value="2021-07-13">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile class="leftgrid">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Customer Name</mat-label>
+              <input matInput placeholder="Mr Silva" value="Mr Silva">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile class="leftgrid">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Vehicle No</mat-label>
+              <input matInput placeholder="CAA-1515" value="CAA-1515">
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="demo-position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="demo-name">
+            <th mat-header-cell *matHeaderCellDef> Service Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="demo-weight">
+            <th mat-header-cell *matHeaderCellDef> Service Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="demo-symbol">
+            <th mat-header-cell *matHeaderCellDef> Amount </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="demo-cancel">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let element"><mat-icon>cancel_presentation</mat-icon></td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+       
+        <br>
+
+        <mat-grid-list cols="2" rowHeight="7:1">
+          <mat-grid-tile>
+            
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill" class="matformcol">
+              <mat-label>Bill Total</mat-label>
+              <input matInput placeholder="Rs. 20000" value="Rs. 20000">
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="1" rowHeight="6:1">
+          <mat-grid-tile>
+            <mat-card-title fxLayoutAlign="center"><button mat-raised-button class = "print">Print</button></mat-card-title>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

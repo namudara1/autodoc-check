@@ -1,0 +1,234 @@
+.container{
+
+    padding-bottom: 6%;
+}
+
+.tabs{
+    position: relative;
+    margin-top: 1%;
+    left: 1%;
+    background: rgba(255, 255, 255, 0.5);
+    width: 93%;
+    height: 100vh;
+    padding: 50px;
+    border-radius: 15px;
+    /* margin-bottom: 50px; */
+    /* overflow: hidden; */
+}
+
+.todayTab{
+    /* background: red; */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* background: red; */
+}
+
+.todayServices{
+    position: relative;
+    top:2%;
+    /* display: inline-block; */
+    float: left;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    width: 40%;
+    height: auto;
+    background: rgba(0, 4, 255,0.5);
+    text-align: center;
+    align-items: center;
+    padding: 1%;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+h1{
+    font-weight: 700px;
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 1px;
+    font-family: catamaran;
+    color: white;
+    
+}
+
+#editbutton{
+    position: relative;
+    width: 254px;
+    height: 81px;
+    background: #000000;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-size: 36px;
+    font-family: Catamaran;
+    padding: 23px;
+    margin: 20px;
+    margin-bottom: 60px;
+}
+
+#editbutton:hover{
+    background: rgb(7, 3, 243);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;            
+}
+ 
+#vehiclebutton img:hover{
+    width: 270px;
+    height: 270px;
+    transition: 0.3s;
+    margin: 40px;
+}
+
+#vehiclebutton{
+    margin-top: 25px;
+}
+
+.vehiclecontent img{
+    width: 250px;
+    height: 250px;
+    margin: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 15px rgba(15, 3, 124, 0.1);
+}
+
+.todayServices table {
+    position: inherit;
+    /* display: inline-block; */
+    width: 100%;
+    height: auto;
+    font-family: catamaran;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+/* th{
+    font-size: 22px;
+}
+td{
+    font-size: 23px;
+} */
+
+
+
+/* Service station table css eka damma genalla */
+
+#serviceStationsTable {
+    position: relative;
+    border-collapse: collapse;
+    background: rgba(245, 245, 245, 0.5);
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    border-radius: 10px;
+    font-family: catamaran;
+    margin: 0px auto;
+  }
+  
+  #serviceStationsTable th, #serviceStationsTable td {
+    text-align: left;
+    padding: 12px;
+    
+  }
+
+  #serviceStationsTable tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+
+
+.bay1spinner, .bay2spinner{
+    /* display: inline-; */
+    align-items: center;
+    text-align: center;
+    position: relative;
+    top: 1%;
+    display: inline-block;
+    margin: 1%;
+    width: auto;
+    height: auto;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.bay1spinner h1, .bay2spinner h1{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    color: black;
+}
+
+mat-progress-spinner{
+    position:inherit;
+    margin: 2%;
+    display: inline-block;
+    align-items: center;
+}
+
+.details{
+    display: inline-block;
+    align-items: center;
+    position: absolute;
+    top:50px;
+    left: 780px;
+    width: 900px;
+    height: auto;
+    font-family: catamaran;
+}
+
+#service{
+    width: 80%;
+    margin-left: 0px;
+}
+
+#service td{
+    font-size: 40px;
+    text-align: end;
+}
+
+h4{
+    font-size: 100px;
+    margin: 30px;
+}
+
+.stationprofile, .stationprofileservices{
+    width: 45%;
+    height: 90%;
+    margin: 1%;
+    float: left;
+    padding: 1%;
+    border-radius: 10px;
+    background: rgba(157, 148, 238, 0.5);
+    align-items: center;
+    text-align: center;
+    font-family: catamaran;
+    box-shadow: 0px 0px 15px 7px rgba(15, 3, 124, 0.1);
+}
+
+.stationprofile img{ 
+    width:15%;
+    margin: 1%;
+}
+
+.stationprofileservices img{
+    width: 50%;
+    border-radius: 10px;
+}
+
+.stationprofile p, .stationprofileservices p{
+    font-size: 25px;
+}
+
+.stationprofileservices{
+    float: right;
+}
+
+.serviceButton{
+    width: 30%;
+    padding: 1%;
+    padding-top: 3%;
+    margin: 1%;
+    margin-top: 4%;
+    font-size: 17px;
+}

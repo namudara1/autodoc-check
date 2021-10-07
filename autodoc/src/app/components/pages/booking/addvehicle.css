@@ -1,0 +1,191 @@
+::ng-deep .mat-dialog-container {
+    height: fit-content !important;
+    width: auto !important;
+    background: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    
+}
+
+::ng-deep .mat-dialog-content {
+    height: fit-content !important;
+    width: auto !important;
+    
+}
+
+.container{
+    height: fit-content;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.addbuttonLocked{
+    position: relative;
+    background: #9ba8a1;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: Catamaran;
+    padding:2% 7%;
+    margin: 1%;
+  }
+  .addbuttonLocked:hover{
+    background: #9ba8a1;
+  }
+  
+  .addbutton{
+    position: relative;
+    background: #0a8f51;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: Catamaran;
+    padding:2% 7%;
+    margin: 1%;
+  }
+  
+  .addbutton:hover{
+    background: rgb(7, 3, 243);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+  }
+
+  .container{
+    text-align: center;
+    align-items: center;
+}
+
+.content{
+    width: fit-content;
+    /* background: red; */
+}
+
+.mat-form-field {
+    margin: 5px auto;
+  /* margin-right: 1%; */
+    font-size: 15px;
+    float: left;
+}
+
+td{
+    padding-bottom: 6%;
+    margin-right: 8%;
+    /* background: white; */
+}
+
+#resetbutton{
+    position: relative;
+    background: #ff0000;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Catamaran;
+    border: 0px;
+    padding: 1% 7%;
+    margin: 1%;
+}
+
+#resetbutton:hover{
+    background: rgb(7, 3, 243);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+
+}
+
+#addbutton{
+    position: relative;
+    background: #000000;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: Catamaran;
+    padding:1% 7%;
+    margin: 1%;
+}
+
+#addbutton:hover{
+    background: rgb(7, 3, 243);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+
+
+.buttons{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin: 1% auto ;
+    margin-top: 3%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    /* border: 1px solid #ccc;  */
+    background: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.custom-file-upload:hover{
+    transition: 0.3s;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@media all and (max-width: 767px) {
+
+    ::ng-deep .mat-dialog-container {
+        height: 450px !important;
+        width: 300px !important;
+        background: none !important;
+        box-shadow: none !important;
+        overflow: hidden !important;
+        
+    }
+    
+    ::ng-deep .mat-dialog-content {
+        height: 275px !important;
+        width: 250px !important;
+        overflow: scroll;
+        
+    }
+    
+    .container{
+        padding: 10px;
+        width: 250px;
+        height: 400px;
+        
+    }
+
+    .desktop{
+        display: none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    h1{
+        font-size: 25px;
+    }
+    
+}
+
+@media all and (min-width: 768px) {
+    .desktop{
+        display: block;
+    }
+
+    .mobile{
+        display: none;
+    }
+    
+}

@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Service Station Request</h1>
+<mat-dialog-content class="mat-typography">
+  <table>
+    <tr>
+      <td> Reg No.</td>
+      <td> {{data.Requested_ServiceStation.reg_number}}</td>
+    </tr>
+    <tr>
+      <td> Name</td>
+      <td> {{data.Requested_ServiceStation.st_name}}</td>
+    </tr>
+    <tr>
+      <td> Address</td>
+      <td> {{data.Requested_ServiceStation.address}}</td>
+    </tr>
+    <tr>
+      <td> Email</td>
+      <td> {{data.Requested_ServiceStation.email}}</td>
+    </tr>
+    <tr>
+      <td> Contact No.</td>
+      <td> {{data.Requested_ServiceStation.mobile}}</td>
+    </tr>
+    <tr>
+      <td> System Operator</td>
+      <td>{{data.Requested_ServiceStation.firstName}} {{data.Requested_ServiceStation.lastName}}</td>
+    </tr>
+    <tr>
+      <td> Bay amount</td>
+      <td>{{data.Requested_ServiceStation.bay_amount}}</td>
+    </tr>
+    <tr>
+      <td>Providing Services</td>
+      <td>
+        <!-- <tr *ngFor="let service of Requested_ServiceStation_details" >
+          <td>{{service.service_name}}</td>
+          <td>{{service.duration}}h</td>
+          <td>Rs.{{service.amount}}</td>
+        </tr> -->
+
+        <ul >
+          <li  *ngFor="let service of Requested_ServiceStation_details" >{{service.service_name}} - {{service.duration}}h - Rs.{{service.amount}}</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close  (click)="remove_requested_station(data.Requested_ServiceStation,1)" ><mat-icon>close</mat-icon> Decline Request</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click) ="add_ServiceStation(data.Requested_ServiceStation)" ><mat-icon>done</mat-icon>Confirm Service Station</button>
+</mat-dialog-actions>

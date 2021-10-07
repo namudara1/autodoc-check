@@ -1,0 +1,110 @@
+<div class="container">
+    <div  class = "tabs">
+        <mat-tab-group id="tabs">
+            <mat-tab label="Today" id = "today"> 
+                <div class = "todayTab">
+                    <div class = "todayServices">
+
+                        <h1>Today Services</h1>
+                        <!-- Today's Services Table -->
+                        <table id="serviceStationsTable">
+                            <tr class="header">
+                              <th>Appointment ID</th>
+                              <th style="text-align: left;"> Date </th>
+                              <th style="text-align: left;"> Time </th>
+                              <th style="text-align: left;"> Bay ID </th>
+                              <th style="text-align: left;"> Vehicle Reg.No </th>
+                            </tr>
+                            <tr  *ngFor="let TodayAppointment of TodayAppointments">
+                              <td  >{{TodayAppointment.appointment_id}}</td>
+                              <td  >{{TodayAppointment.date}}</td>
+                              <td  >{{TodayAppointment.time}}</td>
+                              <td  >{{TodayAppointment.bay_id}}</td>
+                              <td  >{{TodayAppointment.vehicle_number}}</td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                    <div class ="bay1spinner">
+                        
+                        <mat-progress-spinner
+                            class="example-margin"
+                            [color]="colorBay1"
+                            [mode]="modeBay1"
+                            [value]="valueBay1"
+                            [diameter]=diameterBay1>
+                        </mat-progress-spinner>
+
+                        <h1>Bay 1</h1>
+                    </div>
+
+                    <div class ="bay2spinner">
+                        
+                        <mat-progress-spinner
+                            class="example-margin"
+                            [color]="colorBay1"
+                            [mode]="modeBay1"
+                            [value]="valueBay1"
+                            [diameter]=diameterBay1>
+                        </mat-progress-spinner>
+
+                        <h1>Bay 2</h1>
+                    </div>
+
+                </div>
+
+            </mat-tab>
+            <mat-tab label="Schedule Bookings">
+            <div style="height:70vh;">
+                <app-schedulebook></app-schedulebook>
+            </div>
+            </mat-tab>
+            <mat-tab label="Roster Management"> 
+                
+                <app-employeedetails></app-employeedetails>
+            </mat-tab>
+            <mat-tab label="Inventory Management"> 
+                
+                <app-inventory></app-inventory>
+                
+            </mat-tab>
+            <mat-tab label="Billing"> 
+                
+                <app-billing></app-billing>
+
+            </mat-tab>
+            <mat-tab label="Subscription"> 
+                
+                
+            </mat-tab>
+            <mat-tab label="Profile"> 
+                <div class = "stationprofile">
+                    <h1>ABC Service Station - Maharagama</h1>
+                    <p>Reg No: RG123456</p>
+                    <img src = "assets/img/user/user.png" id ="userimg"> 
+                    <h2>Nuwin Kalpadeepa</h2>
+                    <p>No.12/7 A, High Level Road, Maharagama.</p>
+                    <p>(011) 234-1234</p>
+                    <p>abc_service@gmail.com</p>
+
+                    <a mat-button id = 'editbutton' routerLink="/stationedit">EDIT</a>
+                </div>
+
+                    <div class = "stationprofileservices">
+                        <h1>Services</h1>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/battery.png" id ="batteryIco"><br>Battery Replacement </a>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/polish.png" id ="polishIco"><br>Cut & Polish</a>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/engineTune.png" id ="engineTuneIco"><br>Engine Tune-Up </a>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/interiorCleaning.png" id ="interiorCleanIco"><br>Interior Cleaning</a>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/waxing.png" id ="waxingIco"><br>Waxing </a>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/wheelAlignment.png" id ="wheelAlignIco"><br>Wheel Alignment</a>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/wheelReplace.png" id ="wheelReplaceIco"><br>Wheel Replacement</a>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/engineRepair.png" id ="wheelReplaceIco"><br>Engine Repair</a>
+                        <a mat-button class = 'serviceButton'><img src = "assets/img/ico/add.png" id ="wheelReplaceIco"><br>Add More</a>
+                    </div>
+                
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>  

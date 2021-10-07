@@ -1,0 +1,31 @@
+<div class = "container">
+    <h1>Manage Bookings</h1>
+    
+    <div class = "date">
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]= "selected_date" [ngModelOptions]="{standalone: true}">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker>
+                <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" id="dateselect" matDatepickerApply   (click) = 'get_selected_date_appointments()' >Select</button>
+                  </mat-datepicker-actions>
+            </mat-datepicker>
+        </mat-form-field>
+    </div>  
+    <div class="content">
+        <div class="legends">
+            <button mat-flat-button matTooltip="Online Bookings" class="onlineAppointment" style="width: 100px;">Online</button>
+            <button mat-flat-button matTooltip="Manual Bookings" class="manualAppointment" style="width: 100px;">Manual</button>
+            <button mat-flat-button matTooltip="Free Time Slots" class="freeSlot" style="width: 100px;">Free</button>
+        </div>
+
+        <div class= "grid" style="width: 100%;">
+            <mat-grid-list cols="19" rowHeight="1:1" [gutterSize]="'5px'"  *ngFor="let appointment_bay of selected_bay_appointment_final_arr; index as i">
+                <mat-grid-tile id = "bay">Bay {{i+1}}</mat-grid-tile>
+                <mat-grid-tile [ngClass]="renderClass(appointment.isonline)"   *ngFor="let appointment of selected_bay_appointment_final_arr[i]; index as j" colspan="{{getColspan(appointment.duration_hrs)}}" id = "time"><button mat-button matTooltip="{{get_time_range(appointment.time, appointment.duration_hrs)}}" (click)="openDialog(appointment)"> <p>{{get_time_start_AM(appointment.time)}}</p> </button></mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </div>
+</div>

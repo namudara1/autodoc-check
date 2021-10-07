@@ -1,0 +1,66 @@
+.container{
+  position: relative;
+  top: 106px;
+  left: 18px;
+  align-items: center;
+  text-align: center;
+  width: 98%;
+  height: 1000px;
+  
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+mat-sidenav, 
+mat-sidenav.md-locked-open, 
+mat-sidenav.md-closed.md-locked-open-add-active {
+    min-width: 200px !important;
+    width: 85vw !important;
+    max-width: 400px !important;
+    
+} 
+
+mat-toolbar{
+  position: relative;
+  background: rgba(233, 233, 233, 0.8);
+  z-index: 2;
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+  font-family: catamaran;
+}
+
+mat-sidenav-container {
+  position: relative;
+  top: 0px;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  background: rgba(221, 221, 221, 0.5);
+}
+
+mat-sidenav-content{
+
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  background: rgb(240, 241, 250);
+}
+
+td{
+  text-align: start;
+  font-size: 20px;
+}
+
+.todayServices{
+  background: rgba(7, 21, 226, 0.4);
+  width: 45%;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 15px;
+}
+.todayServices h1{
+  color: white;
+}

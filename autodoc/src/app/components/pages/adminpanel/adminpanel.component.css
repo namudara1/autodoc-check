@@ -1,0 +1,72 @@
+.container{
+    width: 100vw;
+    margin-top: 1%;
+    
+}
+
+.tabs{
+    position: relative;
+    margin: 1% auto;
+    height: auto;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.5);
+    width: 94%;
+    height: auto;
+    padding: 2%;
+    padding-bottom: 6%;
+    border-radius: 15px;
+    
+}
+
+table{
+    position: relative;
+    margin-top: 1%;
+    border-collapse: collapse;
+    background: rgba(245, 245, 245, 0.5);
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    border-radius: 10px;
+    font-family: catamaran;
+    text-align: start;
+  
+
+}
+table tr{
+    border: 1px solid rgb(187, 187, 187);
+    padding-top: 10px;
+    padding-bottom: 5%;
+    /* background: red; */
+}
+
+table th{
+    text-align: start;
+    background-color: rgba(61, 12, 238, 0.525);
+    padding: 1%;
+    color: white;
+}
+
+table td{
+    /* padding-left: 1%; */
+}
+
+
+.mat-mini-fab{
+    margin: 4%;
+}
+
+#serviceStationSearch {
+    background-image: url('/assets/img/ico/search.png');
+    background-position: 10px 12px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    width: 96%;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    margin-top: 20px;
+  }

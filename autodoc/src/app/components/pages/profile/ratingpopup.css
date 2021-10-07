@@ -1,0 +1,167 @@
+::ng-deep .mat-dialog-container {
+    align-items: center !important;
+    text-align: center !important;
+    height: 400px !important;
+    width: 450px !important;
+    /* background-image: url("/assets/img/back/login.jpg") !important; */
+    /* border-radius: 20px !important; */
+    background: none !important;
+    box-shadow: none!important;
+    border-radius: 10px !important;
+    overflow: visible !important;
+}
+
+::ng-deep .mat-dialog-content {
+    padding-top: 2%;
+    width: auto !important;
+    height: 300px !important;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background:rgba(24, 124, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    backdrop-filter: blur( 9px );
+    -webkit-backdrop-filter: blur( 9px );
+    
+}
+
+h1{
+    color: white;
+    font-family: Catamaran;
+    /* font-weight: 700; */
+    font-size: 30px;
+    margin-top: 18%;
+    margin-bottom: 0px;
+}
+
+p{
+    color: white;
+    margin: 10px;
+    font-size: 20px;
+}
+
+#worse{
+    background: rgb(255, 0, 0);
+}
+
+#bad{
+    background: rgb(210, 105, 30);
+}
+
+#neutral{
+    background: rgb(255, 255, 0);
+    color: black;
+}
+
+#good{
+    background: rgb(154, 205, 50);
+}
+
+#excellent{
+    background: rgb(0, 128, 0);
+}
+
+/* .mat-mini-fab{
+    width: 70px;
+    height: 70px;
+    margin: auto 10px;
+    padding: 0px;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    font-size: 30px;
+} */
+
+
+.ratebutton{
+    display: inline-block;
+    
+}
+.ratebutton p{
+    font-size: 15px;
+}
+
+.ratebutton button:hover, #worse:hover, #bad:hover, #neutral:hover, #good:hover, #exelent:hover {
+    filter: brightness(80%);
+    transition: 0.3s;
+}
+
+@media all and (max-width:767px) {
+    ::ng-deep .mat-dialog-container {
+        height: fit-content !important;
+        width: fit-content !important;
+        /* background: red !important; */
+        padding: 0;
+    }
+    
+    ::ng-deep .mat-dialog-content {
+        padding-top: 0%;
+        width: auto !important;
+        height: auto !important;
+    }
+    .container{
+        padding: 20px 3px;
+    }
+
+    h1{
+        margin-top: 10px;
+        font-size: 30px;
+    }
+    .mat-fab{
+        margin: auto 5px;
+        padding: 0px;
+        align-items: center;
+        text-align: center;
+        vertical-align: middle;
+        justify-content: center;
+        /* font-size: 30px; */
+    }
+
+    .mat-icon{
+        font-size: 25px;
+    }
+    
+    .ratebutton p{
+       font-size: 13px;
+        
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    .desktop{
+        display: none;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .mobile{
+        display: none;
+    }
+
+    .desktop{
+        display: block;
+    }
+
+    .ratebutton{
+        width: 70px;
+        /* background: turquoise; */
+        margin: 1px 2px;
+        padding: 0;
+    }
+
+    .mat-icon{
+        margin: 0 auto;
+        font-size: 25px;
+    }
+
+    .mat-fab{
+        padding: 0;
+    }
+}

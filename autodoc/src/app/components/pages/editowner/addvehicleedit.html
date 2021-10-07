@@ -1,0 +1,192 @@
+<style>
+   
+</style>
+<div class="container">
+    <h1>Add a new Vehicle </h1>
+    <div mat-dialog-content class = "content">
+        <div class="desktop">
+            <table>
+                <tr>
+                    <td>
+    
+                        <mat-form-field appearance="legacy" style="width: 100%;">
+                            <!-- <span matPrefix>Owner: &nbsp;</span> -->
+                            <mat-label>{{user_details.first_name}} {{user_details.last_name}} </mat-label>
+                            <input matInput disabled value="">
+                            
+                        </mat-form-field>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field appearance="legacy" style="width: 60%;">
+                            <mat-label>Registration Number</mat-label>
+                            <input required [(ngModel)]="vehcicle_reg_number" matInput > 
+                            <mat-hint>Ex. KW-1155</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Brand</mat-label>
+                            <input  required [(ngModel)]="brand" matInput  > 
+                            <mat-hint>Ex. Toyota</mat-hint>
+                        </mat-form-field>
+                    </td>
+                        
+                    <td>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Model</mat-label>
+                                <input  required [(ngModel)]="model" matInput  >
+                            <mat-hint>Ex. Premio</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <mat-form-field appearance="legacy" >
+                            <mat-label>Year of manufactured</mat-label>
+                            <input required [(ngModel)]="year_manf" matInput > 
+                            <mat-hint>Ex. 2013</mat-hint>
+                        </mat-form-field>
+                    </td>
+
+                    <td>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Vehicle category</mat-label>
+                            <mat-select required  [(ngModel)]="vehicle_category" >
+                                <mat-option value="car">CAR</mat-option>
+                                <mat-option value="van">VAN</mat-option>
+                                <mat-option value="suv">SUV</mat-option>
+                                <mat-option value="heavy vehicle">HEAVY VEHICLE</mat-option>
+                            </mat-select>
+                            <mat-hint>Ex. SUV</mat-hint>
+                        </mat-form-field>
+            
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Mileage</mat-label>
+                            <span matSuffix>km &nbsp;</span>
+                            <input required [(ngModel)]="mileage" matInput >
+                            <mat-hint>Ex. 10000km</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-label style="font-size: large;">Upload a picture of the vehicle:</mat-label>
+                    </td>
+                    <td>
+                        <label for="files" class="custom-file-upload">
+                            <input id="files" type="file"  (change)="chooseFile($event)" accept=".png, .jpg, .jpeg">
+                            <mat-icon style="margin: 9px auto;">add_a_photo</mat-icon>
+                        </label>
+                        <!-- <input id="files" type="file"  (change)="chooseFile($event)" accept=".png, .jpg, .jpeg"> -->
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="mobile">
+            <table>
+                <tr>
+                    <td>
+    
+                        <mat-form-field appearance="legacy" style="width: 100%;">
+                            <!-- <span matPrefix>Owner: &nbsp;</span> -->
+                            <mat-label>{{user_details.first_name}} {{user_details.last_name}} </mat-label>
+                            <input matInput disabled value="">
+                            
+                        </mat-form-field>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field appearance="legacy" style="width: 60%;">
+                            <mat-label>Registration Number</mat-label>
+                            <input required [(ngModel)]="vehcicle_reg_number" matInput > 
+                            <mat-hint>Ex. KW-1155</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Brand</mat-label>
+                            <input  required [(ngModel)]="brand" matInput  > 
+                            <mat-hint>Ex. Toyota</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>        
+                    <td>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Model</mat-label>
+                                <input  required [(ngModel)]="model" matInput  >
+                            <mat-hint>Ex. Premio</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <mat-form-field appearance="legacy" >
+                            <mat-label>Year of manufactured</mat-label>
+                            <input required [(ngModel)]="year_manf" matInput > 
+                            <mat-hint>Ex. 2013</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Vehicle category</mat-label>
+                            <mat-select required  [(ngModel)]="vehicle_category" >
+                                <mat-option value="car">CAR</mat-option>
+                                <mat-option value="van">VAN</mat-option>
+                                <mat-option value="suv">SUV</mat-option>
+                                <mat-option value="heavy vehicle">HEAVY VEHICLE</mat-option>
+                            </mat-select>
+                            <mat-hint>Ex. SUV</mat-hint>
+                        </mat-form-field>
+            
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Mileage</mat-label>
+                            <span matSuffix>km &nbsp;</span>
+                            <input required [(ngModel)]="mileage" matInput >
+                            <mat-hint>Ex. 10000km</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="files" class="custom-file-upload">
+                            <input id="files" type="file"  (change)="chooseFile($event)" accept=".png, .jpg, .jpeg">
+                            <mat-icon style="margin: 9px auto;">add_a_photo</mat-icon>
+                        </label>
+                        <!-- <input id="files" type="file"  (change)="chooseFile($event)" accept=".png, .jpg, .jpeg"> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0px; width: fit-content;">
+                        <mat-label style="font-size: large; font-size: 15px;">Upload a picture of the vehicle:</mat-label>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+    <div class = "buttons">
+        <button  mat-button id="resetbutton"  (click) = 'reset()'>RESET</button>
+        <button mat-button id="addbutton"  [disabled] = " "   [ngClass]="addbuttonLocked()"   (click) = 'addNewVehicle()'  >ADD</button>
+    </div> 
+</div>

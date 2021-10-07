@@ -1,0 +1,436 @@
+::ng-deep .mat-tab-label{
+    margin: 0px auto;
+    font-size: 25px;
+}
+
+.container{
+    width: 100vw;
+    margin-top: 1%;
+    max-height: fit-content;
+    /* background: red; */
+}
+
+.cancelButton{
+    color: red;
+}
+
+.cancelButton:disabled{
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.tabs{
+    position: relative;
+    margin: 0% auto;
+    background: rgba(255, 255, 255, 0.5);
+    width: 94%;
+    max-height: fit-content;
+    min-height: 90vh;
+    height: auto;
+    padding: 2%;
+    padding-bottom: 6%;
+    border-radius: 15px;
+    
+}
+
+#userimg{
+    width: 250px;
+    height: 250px;
+    margin-top: 5px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.profile{
+    display: inline-block;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 35px;
+    text-align: center;
+    width: 99%;
+    /* background: red; */
+    align-items: center;
+    margin: 1% auto;
+}
+
+.profinfo{
+    /* font-family: Arial, Helvetica, sans-serif; */
+    width: 70%;
+    margin: 0px auto;
+    padding: 10px;
+    background: rgba(71, 83, 255, 0.2);
+    border-radius: 10px;
+}
+
+.profinfo td{
+    text-align: start;
+}
+
+h1{
+    font-weight: 700px;
+    font-size: 40px;
+    margin-top: 2px;
+    margin-bottom: 1px;
+    
+}
+
+p{
+    font-size: 26px;
+    margin-top: 0px;
+    margin: 0px;
+}
+
+
+#editbutton{
+    float: right;
+    color: rgb(0, 0, 0);
+    margin: 6px;
+    padding: 7px;
+    width: 60px;
+    height: 60px;
+}
+
+#editbutton:hover{
+    background: rgba(0, 0, 0, 0.205);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;            
+}
+ 
+#vehiclebutton img:hover{
+    width: 210px;
+    height: 210px;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+#vehiclebutton{
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.vehiclecontent img{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 15px rgba(15, 3, 124, 0.1);
+
+}
+
+table {
+    width: 100%;
+    font-family: catamaran;
+    /* border: 2px solid black; */
+  }
+th{
+    font-size: 22px;
+}
+td{
+    font-size: 23px;
+}
+
+.progress{
+    width: auto;
+    /* display: inline-block; */
+    align-items: center;
+    text-align: center;
+    justify-content:center;
+
+    
+
+}
+
+.eachservicetable{
+    padding: 5px;
+    padding-bottom: 50px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+.spinner{
+    position: relative;
+    top: 50px;
+    width: 400px;
+    /* background: red; */
+}
+
+mat-progress-spinner{
+    position:relative;
+    top: 10px;
+    left: 100px;
+    margin-bottom: 50px;
+
+}
+
+#statusimg{
+    position: absolute ;
+    top: 184px;
+    left: 180px;
+    width: 100px;
+}
+
+
+.details{
+    
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    width: auto;
+    height: auto;
+    font-family: catamaran;
+}
+
+.details tr{
+    background: rgba(4, 0, 255, 0.1);
+    margin: 2px;
+}
+
+#service{
+    width: 80%;
+    margin-left: 0px;
+    margin: auto auto;
+    
+}
+
+#service td{
+    font-size: 30px;
+    text-align: start;
+    padding-left: 10px;
+}
+
+h4{
+    color: rgb(7, 3, 243);
+    font-size: 70px;
+    margin: 30px;
+}
+
+#appointmenthistory {
+    position: relative;
+    border-collapse: collapse;
+    background: rgba(245, 245, 245, 0.5);
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    border-radius: 10px;
+    font-family: catamaran;
+    table-layout: fixed;
+  }
+  
+  #appointmenthistory th, #appointmenthistory td {
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    
+  }
+
+  #appointmenthistory tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+  #appointmenthistory tr:hover{
+    background: whitesmoke;
+    cursor:default;
+  }
+
+  #appointmenthistory tr.header, tr.header:hover{
+    background-color: rgba(61, 12, 238, 0.525);
+  }
+
+  .header{
+      color: white;
+  }
+
+  .ratebutton{
+      color: #ffdf00;
+  }
+
+  /* .ratebutton:disabled{
+    color: rgba(255, 255, 255, 0.5);
+  } */
+
+  #serviceStationSearch {
+    background-image: url('/assets/img/ico/search.png');
+    background-position: 10px 12px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    width: 95%;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin: 20px auto;
+  }
+
+  @media all and (max-width:767px) {
+      
+    .container{
+        margin-top: 16%;
+    }
+
+    .content{
+        /* background: red; */
+        max-height: 70vh;
+        overflow: scroll;
+    }
+
+    .desktop{
+        display: none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    ::ng-deep .mat-tab-label{
+        padding: 15px !important;
+        margin: 1px auto;
+    }
+
+    .profile{
+        max-height: 80vh;
+        overflow: scroll;
+    }
+
+    .tabs{
+        padding-bottom: 0;
+    }
+
+    .mobile h1{
+        font-size: 30px;
+    }
+
+    .mobile .profinfo{
+        width: fit-content;
+    }
+
+    .mobile .profinfo td{
+        text-align: center;
+    }
+
+    .vehiclecontent img{
+        width: 120px;
+        height: 120px;
+        margin: 5px;
+    }
+
+    #vehiclebutton img:hover{
+        width: 120px;
+        height: 120px;
+    }
+
+    #appointmenthistory {
+        border: 0;
+        background: transparent;
+      }
+      
+    #appointmenthistory thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+      
+    #appointmenthistory tr {
+        background: rgba(255, 255, 255, 0.5);
+        /* border-bottom: 3px solid #ddd; */
+        display: block;
+        margin-bottom: .625em;
+        border-radius: 10px;
+      }
+      
+    #appointmenthistory td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+      }
+      
+    #appointmenthistory td::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+    .ratebutton{
+        /* background-color: red;  */
+        right: 1px;
+    }
+
+    #serviceStationSearch{
+        width: 80%;
+    }
+
+    h4{
+        font-size: 35px;
+        margin: 70px 20px 0px;
+    }
+    
+    .spinner{
+        width: inherit;
+    }
+
+    mat-progress-spinner{
+        position:relative;
+        top: unset;
+        left: unset;
+        margin-bottom: 50px;
+        margin: 0px auto;
+    
+    }
+
+    #statusimg{
+        position: absolute ;
+        top: 38%;
+        left: 35%;
+        width: 100px;
+    }
+
+    #service{
+        width: 100%;
+        margin-left: 0px;
+        margin: auto auto;
+        
+    }
+    
+    #service td{
+        font-size: 20px;
+        text-align: start;
+        padding-left: 10px;
+    }
+
+  }
+
+  @media all and (min-width: 768px) {
+      .desktop{
+          display: block;
+      }
+
+      .mobile{
+          display: none;
+      }
+
+       #vehicleRegNo{
+          text-align: start !important;
+          /* background: red; */
+      }
+
+      #appointment_id{
+           text-align: center !important; 
+      }
+
+      #removeButtonTd{
+          padding: 0;
+      }
+  }

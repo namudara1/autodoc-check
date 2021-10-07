@@ -1,0 +1,91 @@
+<div class="container">
+    <div  class = "tabs">
+        <mat-tab-group id="tabs">
+            <mat-tab label="Requests"> 
+                <input type="text" id="serviceStationSearch" class="form-control"  placeholder="Search for Requested Service Station OR Other Service Station details.." title="Type in a name" [(ngModel)]="searchedKeyword_1" [ngModelOptions]="{standalone: true}"> 
+                <table>
+                    <tr>
+                        <!-- <th>#</th> -->
+                        <th style="text-align: left;">Reg No.</th>
+                        <th style="text-align: left;">Name</th>
+                        <th style="text-align: left;">Address</th>
+                        <th style="text-align: left;">System Operator</th>
+                        <th style="text-align: left;">Bay Amount</th>
+                        <th >Reg. Document</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr *ngFor="let Requested_ServiceStation of Requested_ServiceStations |filter:searchedKeyword_1 " >
+                        <!-- <td>1.</td> -->
+                        <td style="text-align: left;">{{Requested_ServiceStation.reg_number}}</td>
+                        <td style="text-align: left;">{{Requested_ServiceStation.st_name}}</td>
+                        <td style="text-align: left;">{{Requested_ServiceStation.address}}</td>
+                        <td style="text-align: left;">{{Requested_ServiceStation.firstName}} {{Requested_ServiceStation.lastName}}</td>
+                        <td style="text-align: left;">{{Requested_ServiceStation.bay_amount}}</td>
+                        <td><button (click)="view_regPDF( Requested_ServiceStation.reg_number )" mat-raised-button ><mat-icon>visibility</mat-icon></button></td>
+                        <td>
+                            <!-- <button mat-mini-fab style="background: green;"><mat-icon>done</mat-icon></button> -->
+                            <!-- <button mat-mini-fab color="warn"><mat-icon>remove</mat-icon></button> -->
+                            <button mat-mini-fab color="primary" (click)="openDialog(Requested_ServiceStation)"><mat-icon>launch</mat-icon></button>
+                        </td>
+                    </tr>
+                    
+                    
+                    
+                   
+                </table>
+                
+            </mat-tab>
+            <mat-tab label="Service Stations">
+                <input type="text" id="serviceStationSearch" class="form-control"  placeholder="Search for a Service Station.." title="Type in a name" [(ngModel)]="searchedKeyword_2" [ngModelOptions]="{standalone: true}"> 
+                <table>
+                    <tr>
+                        <th>Station ID</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th >System Operator</th>
+                        <th >Email</th>
+                        <th>Contact No.</th>
+                        <th style="text-align: center;">Reg. Document</th>
+                        <th>Action</th>
+                    </tr>  
+                    <tr *ngFor="let AllServiceStationsRow of AllServiceStationsRows |filter:searchedKeyword_2 ">
+                        <td style="padding: 1%;" >{{AllServiceStationsRow.st_id}}</td>
+                        <td>{{AllServiceStationsRow.st_name}}</td>
+                        <td>{{AllServiceStationsRow.town}}</td>
+                        <td>{{AllServiceStationsRow.firstName}} {{AllServiceStationsRow.lastName}}</td>
+                        <td>{{AllServiceStationsRow.email}}</td>
+                        <td>{{AllServiceStationsRow.mobile}}</td>
+                        <td style="text-align: center;"><button mat-raised-button (click)="view_regPDF_of_ValidStations( AllServiceStationsRow.st_id)"><mat-icon>visibility</mat-icon></button></td>
+                        <td><button mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button><button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button></td>
+                    </tr>
+                    
+                  
+                   
+                </table>
+            </mat-tab>
+            <mat-tab label="Vehicle Owners"> 
+                <input type="text" id="serviceStationSearch" class="form-control"  placeholder="Search for a Vehicle Owner.." title="Type in a name" [(ngModel)]="searchedKeyword_3" [ngModelOptions]="{standalone: true}"> 
+                <table>
+                    <tr>
+                        <th style="text-align: left;">Vehicle Owner ID</th>
+                        <th style="text-align: left;">Name</th>
+                        <th style="text-align: left;">Address</th>
+                        <th style="text-align: left;" >Email</th>
+                        <th style="text-align: left;">Contact No.</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr *ngFor="let AllVehicleOwner of AllVehicleOwners |filter:searchedKeyword_3 "> 
+                        <td style="text-align: left; padding: 1%;">{{AllVehicleOwner.owner_id}}</td>
+                        <td style="text-align: left;">{{AllVehicleOwner.first_name}} {{AllVehicleOwner.last_name}}</td>
+                        <td style="text-align: left;">{{AllVehicleOwner.address}}</td>
+                        <td style="text-align: left;">{{AllVehicleOwner.email}}</td>
+                        <td style="text-align: left;">{{AllVehicleOwner.mobile}}</td>
+                        <td><button mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button><button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button></td>
+                    </tr>
+                </table>
+            
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>  

@@ -1,0 +1,121 @@
+.container{
+    padding-bottom: 6%;
+    min-height: 100vh;  
+}
+
+.backbox {
+    position: absolute;
+    width: 1891px;
+    height: 940px;
+    left: 15px;
+    top: 106px;
+    background: rgba(255, 255, 255, 0.2);
+    mix-blend-mode: overlay;
+    box-shadow: 10px 10px 50px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 25px 25px 0px 0px;
+   
+}
+
+#ellipse2{
+    position: absolute;
+    top: 172px;
+    left: 33px;
+    width: 787px;
+    height: 787px;
+    mix-blend-mode: overlay;
+
+}
+
+#ellipse3{
+    position: absolute;    
+    top: 232px;
+    left: 95px;
+    width: 718px;
+    height: 718px;
+    mix-blend-mode: overlay;
+
+}
+
+#car{
+    position: absolute;    
+    top: 370px;
+    left: 95px;
+    width: 1095px;
+    height: 582px;
+
+    /* mix-blend-mode: overlay; */
+
+}
+
+/*choose your*/
+#ch{
+    position: absolute;
+    width: 427px;
+    height: 175px;
+    left: 1354px;
+    top: 391px;
+
+    font-family: 'Armata', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 80px;
+    text-transform: capitalize;
+
+    color: #FFFFFF;
+}
+
+#time{
+    position: absolute;
+    width: 304px;
+    height: 80px;
+    left: 1362px;
+    top: 454px;
+
+    font-family: Armata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 80px;
+    /* identical to box height */
+
+    text-transform: capitalize;
+
+    color: #FFFFFF;
+
+    
+}
+
+#today{
+    position: absolute;
+    width: 383px;
+    height: 144px;
+    left: 1354px;
+    top: 455px;
+
+    font-family: Armata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 115px;
+    line-height: 144px;
+    /* identical to box height */
+
+    text-transform: capitalize;
+
+    color: #FFFFFF;
+}
+
+#bookingbutton{
+    position: absolute;
+    width: 254px;
+    height: 81px;
+    left: 1374px;
+    top: 760px;
+    background: #000000;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-size: 36px;
+    font-family: Catamaran;
+    padding-top: 23px;
+}

@@ -1,0 +1,126 @@
+<style>
+.container{
+    text-align: center;
+    align-items: center;
+}
+.mat-form-field {
+  margin-right: 1%;
+  font-size: 20px;
+}
+
+td{
+    padding-bottom: 6%;
+    margin-right: 8%;
+    /* background: red; */
+}
+
+#resetbutton{
+    position: relative;
+    background: #ff0000;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Catamaran;
+    border: 0px;
+    padding: 2% 7%;
+    margin: 1%;
+}
+
+#resetbutton:hover{
+    background: rgb(7, 3, 243);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+
+}
+
+#addbutton{
+    position: relative;
+    background: #0a8f51;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: Catamaran;
+    padding:2% 7%;
+    margin: 1%;
+}
+
+#addbutton:hover{
+    background: rgb(7, 3, 243);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+
+.buttons{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin: 1% auto ;
+    margin-top: 3%;
+}
+</style>
+<div class="container">
+    <h1 mat-dialog-title>Add Inventory Item</h1>
+    <div mat-dialog-content class = "content">
+        <table>
+            <tr>
+                <td>
+
+                    <mat-form-field appearance="legacy" >
+                        <mat-label>Item_ID</mat-label>
+                        <input matInput #input disabled value="INV0014">
+                        <mat-hint>disabled</mat-hint>
+                    </mat-form-field>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Product Name</mat-label>
+                        <input matInput #input placeholder="Ex. Havoline">
+                        <mat-hint>Type Item Name</mat-hint>
+                    </mat-form-field>
+        
+                </td>
+                    
+                <td>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Category</mat-label>
+                        <mat-select>
+                            <mat-option value="oil">Oil</mat-option>
+                            <mat-option value="battery">Battery</mat-option>
+                            <mat-option value="car_wash">Car Wash</mat-option>
+                            <mat-option value="brake_oil">Brake Oil</mat-option>
+                            <mat-option value="air_filter">Air Filter</mat-option>
+                        </mat-select>
+                        <mat-hint>Select the Category</mat-hint>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Unit Cost</mat-label>
+                        <input matInput #input>
+                        <mat-hint>(Rs.)</mat-hint>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Unit Price</mat-label>
+                        <input matInput #input>
+                        <mat-hint>(Rs.)</mat-hint>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        
+        <div class = "buttons">
+            <button mat-button id="resetbutton">RESET</button>
+            <button mat-button id="addbutton">ADD</button>
+        </div> 
+    </div>
+</div>

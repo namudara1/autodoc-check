@@ -1,0 +1,120 @@
+mat-grid-tile {
+    background: lightblue;
+    /* padding: 10%; */
+    /* font-size:10px; */
+    /* float: right; */
+  }
+
+  mat-grid-tile p{
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+
+  mat-grid-tile button{
+      padding: 0px;
+  }
+
+  mat-grid-list {
+    /* background: lightblue; */
+    padding: 0.5%;
+  }
+
+  .content::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+
+   .container{
+        position: relative;
+        margin: 0px auto;
+        width: 98%;
+        height: 63vh;
+        padding: 1%;
+        /* background: red; */
+        /* background: rgba(255, 255, 255, 0.5); */
+        border-radius: 10px;
+        /* box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25); */
+   }
+
+   .content{
+       width: 100%;
+       /* background: red; */
+       max-height: 45vh;
+       overflow: scroll;
+   }
+
+
+
+   .grid{
+       position: relative;
+       top: 5%;
+       left: 0px;
+       width: 100%;
+       font-size: 20px;
+       font-weight: 700;
+       padding: 0;
+      
+   }
+
+   .date{
+        position: relative;
+        top: 5%;
+        right: 2%;
+        float: right;
+        font-size: 25px;
+        
+    }
+
+   #bay{
+        width: fit-content;
+        font-size: 15px;
+        font-weight: bolder;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 10px;
+        background: rgba(253, 253, 253, 0.5);
+        color: rgb(0, 0, 0);
+        transform:rotate(-90deg);
+        -webkit-transform:rotate(-90deg);
+        /* float: left; */
+   }
+
+   #time{
+    border-radius: 8px;
+    
+   }
+
+   h1{
+       display: inline-block;
+       text-align: left;
+       font-size: 40px;
+       font-family: catamaran;
+    }
+
+   button{
+       font-size: 25px;
+       font-family: catamaran;
+       width: 100%;
+       height: 100%;
+   }
+
+.onlineAppointment{
+    background:rgb(179, 48, 255);
+    color: white;
+}
+.manualAppointment{
+    background:rgb(0, 110, 255);
+    color: white;
+}
+.freeSlot{
+    background:rgb(255, 255, 255);
+}
+
+.legends{
+    width: fit-content;
+    margin: 5px auto; 
+}
+
+.mat-flat-button{
+    margin: 5px 5px;
+}

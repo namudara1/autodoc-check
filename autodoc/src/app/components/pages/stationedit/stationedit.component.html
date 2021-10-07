@@ -1,0 +1,102 @@
+<div mat-dialog-content>
+  <div class = "content">
+      
+      <div class = "formclass">
+          <h1 id = "heading">Edit Profile</h1>
+
+          <form class="example-form">
+              <table class="example-full-width" appearance="fill">
+                  <tr>
+                      <td>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label >Company (disabled)</mat-label>
+                              <input matInput disabled value="ABC Servce Station">
+                          </mat-form-field>
+                      </td>
+
+                      <td>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label >Company Registration Number (disabled)</mat-label>
+                              <input matInput disabled value="RG123456">
+                          </mat-form-field>
+                      </td>
+                  </tr>
+              </table>
+              
+              <p>Service Station System Operator Details:</p>
+              <table class="example-full-width" cellspacing="0"><tr>
+                <td><mat-form-field class="example-full-width" appearance="fill" hideRequiredMarker>
+                  <mat-label>First name</mat-label>
+                  <input matInput value = "Nuwin" required [formControl]="fname">
+                  <mat-error *ngIf="telephone.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field></td>
+
+                <td><mat-form-field class="example-full-width" appearance="fill" hideRequiredMarker>
+                  <mat-label>Last Name </mat-label>
+                  <input matInput value = "Kalpadeepa" required [formControl]="lname">
+                  <mat-error *ngIf="telephone.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field></td>
+              </tr></table>
+            
+              <p>Service Station Location Details:</p>
+              <table class="example-full-width" cellspacing="0"><tr>
+                <td><mat-form-field class="example-full-width" appearance="fill" hideRequiredMarker>
+                  <mat-label>Address Line 1</mat-label>
+                  <input matInput placeholder="Ex. No.32" value = "No.12/7 A" required [formControl]="addline1">
+                  <mat-error *ngIf="telephone.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field></td>
+
+                <td><mat-form-field class="example-full-width" appearance="fill" hideRequiredMarker>
+                  <mat-label>Address Line 2</mat-label>
+                  <input matInput placeholder="Ex. Kottawa Road" value = "High Level Road" required [formControl]="addline2">
+                  <mat-error *ngIf="telephone.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field></td>
+
+                <td><mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Address Line 3</mat-label>
+                  <input matInput #postalCode maxlength="5" placeholder="Ex. Pannipitiya" value="Maharagama">
+                </mat-form-field></td>
+
+                <td><mat-form-field class="example-full-width" appearance="fill" hideRequiredMarker>
+                  <mat-label>District</mat-label>
+                  <input matInput #postalCode maxlength="5" placeholder="Ex. Colombo" value="Colombo" required [formControl]="district">
+                  <mat-error *ngIf="telephone.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field></td>
+              </tr></table>
+              
+              <p>Service Station Contact Details:</p>
+
+              <table class="example-full-width" cellspacing="0"><tr>
+
+                  <td><mat-form-field class="example-full-width" appearance="fill" hideRequiredMarker>
+                    <mat-label>Telephone 1</mat-label>
+                    <input matInput placeholder="Ex. 011 2 123 123" required [formControl]="telephone" mask="(000) 000-0000">
+                    <mat-error *ngIf="telephone.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field></td>
+
+                  <td><mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Telephone 2</mat-label>
+                    <input matInput placeholder="Ex. (011) 234-1234" mask = "(000) 000-0000">
+                  </mat-form-field></td>
+
+                  <td><mat-form-field class="example-full-width" appearance="fill" hideRequiredMarker>
+                    <mat-label>Email</mat-label>
+                    <input matInput maxlength="5" placeholder="Ex. user@example.com"  [formControl]="email" value="" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field></td>
+
+                </tr></table>
+
+                <a id="changePassword" (click)="openDialog()">Change Password</a>
+
+                <div class ="buttons">
+                  <a mat-button routerLink="/back" id = 'backbutton'><mat-icon>arrow_back_ios</mat-icon>BACK</a>
+                  <a mat-button routerLink="/confirm" id = 'confirmbutton'>CONFIRM<mat-icon>check</mat-icon></a>
+                </div>
+              
+            </form>
+
+
+      </div>
+  </div>
+</div>
